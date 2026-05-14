@@ -41,11 +41,11 @@ docs/
 CLAUDE.md
 PLAN.md
 
-# Raw image source folders (unused by built site; live copies sit in stark-landing/public/)
-Directors/
-Team/
-eyecheckup/
-scraped/
+# Raw image source folders (root-level only; site copies live in stark-landing/public/)
+/Directors/
+/Team/
+/eyecheckup/
+/scraped/
 
 # Stray root-level source images (unused; site uses stark-landing/public/images/)
 /team_picture.jpg
