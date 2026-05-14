@@ -32,13 +32,13 @@ jobs:
       - run: npm ci
 
       - name: Build (static export)
-        env:
-          # Subpath while on github.io URL; clear this when custom domain is attached.
-          NEXT_PUBLIC_BASE_PATH: /stark-foundation-website
+        # NEXT_PUBLIC_BASE_PATH intentionally unset — serving from apex custom domain.
         run: npm run build
 
-      - name: Add .nojekyll
-        run: touch out/.nojekyll
+      - name: Add .nojekyll + CNAME (custom domain)
+        run: |
+          touch out/.nojekyll
+          echo "starkfoundation.in" > out/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:
