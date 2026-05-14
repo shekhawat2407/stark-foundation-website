@@ -1,0 +1,54 @@
+# Secrets
+.env
+.env*.local
+
+# Local Claude Code state
+.claude/
+
+# Old git backup from history rewrite (do not push)
+.git.backup-pre-rewrite/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# v0 / Vercel sandbox internals (carried over from stark-landing/.gitignore)
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
+next.user-config.*
+
+# Temp / extracted artefacts
+*.docx.bak
+
+# Large archives / legal docs (not for public repo)
+*.zip
+*.docx
+*.pdf
+
+# Internal session notes / Claude instructions
+docs/
+CLAUDE.md
+PLAN.md
+
+# Raw image source folders (unused by built site; live copies sit in stark-landing/public/)
+Directors/
+Team/
+eyecheckup/
+scraped/
+
+# Stray root-level source images (unused; site uses stark-landing/public/images/)
+/team_picture.jpg
+/hero_bachpan.jpg
+/hero_camps.webp
+/health_replacement.webp

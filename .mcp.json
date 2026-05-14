@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "wix": {
+      "type": "http",
+      "url": "https://mcp.wix.com/mcp",
+      "headers": {
+        "Authorization": "${WIX_API_KEY}",
+        "wix-account-id": "${WIX_ACCOUNT_ID}"
+      }
+    }
+  }
+}
