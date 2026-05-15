@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 
 const BASE = 'https://starkfoundation.in'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   const pages: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }> = [
