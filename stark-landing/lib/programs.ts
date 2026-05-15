@@ -264,6 +264,17 @@ export const activities: Activity[] = [
     partners: ['Anonymous donor partner'],
     photo: '/images/gallery/water-cooler-bhim-vridha-2026.jpg',
   },
+  {
+    id: 'ai-workshop-ecb-2026',
+    bucket: 'higher-ed-partnerships',
+    title: 'AI Workshop for Innovators & Entrepreneurs (Phase 1)',
+    date: 'May 13, 2026',
+    venue: 'Engineering College Bikaner, Dept of EICE',
+    description:
+      'Introductory session at ECB on Artificial Intelligence and VLSI, organised with the EICE department under HOD Ms. Pooja Bhardwaj. Pradhyumn Singh (Stark Foundation) walked students through AI in industry, the shift from chatbots to autonomous agents, hallucination risks, and tools like Claude Code and Copilot. Madhavi Joshi covered VLSI design tools, hardware languages, and how AI is starting to influence hardware design. A hands-on Phase 2 project in collaboration with the Stark Foundation was announced.',
+    partners: ['Engineering College Bikaner (EICE Department)'],
+    photo: '/images/gallery/ai-workshop-ecb-2026.jpg',
+  },
 ]
 
 // "Active right now" callouts for the homepage and program pages.

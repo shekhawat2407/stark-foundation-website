@@ -29,6 +29,11 @@ const milestones = [
     body: 'Registered as a Section-8 non-profit in Bikaner.',
   },
   {
+    year: '2020',
+    title: 'COVID response',
+    body: 'Pandemic response: 6,000+ meal boxes, 4,000+ ration kits, free RT-PCR for the elderly, rent-free oxygen for discharged patients.',
+  },
+  {
     year: '2021',
     title: 'Bikaner centre',
     body: 'First training centre opens in Old Ginnani. Several projects to uplift kids from Bikaner slum areas.',
@@ -156,7 +161,7 @@ export default function AboutUs() {
             How we got here
           </div>
           <h2 className="text-2xl md:text-3xl font-semibold mb-12 max-w-2xl">
-            Six years, six milestones.
+            Seven years, seven milestones.
           </h2>
           <div className="relative">
             <div
@@ -167,7 +172,7 @@ export default function AboutUs() {
               aria-hidden
               className="md:hidden absolute left-10 top-10 bottom-10 border-l-2 border-dashed border-accent/40"
             />
-            <ol className="relative grid gap-10 md:gap-4 md:grid-cols-6">
+            <ol className="relative grid gap-10 md:gap-3 md:grid-cols-7">
               {milestones.map((m) => (
                 <li
                   key={m.year}

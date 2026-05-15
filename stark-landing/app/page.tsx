@@ -196,25 +196,25 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {[
               {
+                src: '/images/gallery/ai-workshop-ecb-2026.jpg',
+                date: 'May 13, 2026',
+                caption:
+                  'AI Workshop (Phase 1): introductory session at Engineering College Bikaner on AI agents, hallucinations, and VLSI hardware.',
+                href: '/higher-ed-partnerships',
+              },
+              {
+                src: '/images/gallery/water-cooler-bhim-vridha-2026.jpg',
+                date: 'May 8, 2026',
+                caption:
+                  'Water Cooler Donation: installed at Bhim Vridha Ashram, Rani Bazar — safe cold drinking water through the Rajasthan summer.',
+                href: '/community-camps',
+              },
+              {
                 src: '/images/gallery/recent-stitching-2026.jpg',
                 date: 'March 2026',
                 caption:
                   'Stitching Batch: 2nd cohort of 2025–26 mid-session at the Bikaner centre.',
                 href: '/vocational-training',
-              },
-              {
-                src: '/images/gallery/recent-computer-2026.jpg',
-                date: 'March 2026',
-                caption:
-                  'Basic Computer Batch: 1st cohort of 2026 in session at the Bikaner centre.',
-                href: '/vocational-training',
-              },
-              {
-                src: '/images/gallery/recent-mp-colony-2025.jpg',
-                date: 'July 2025',
-                caption:
-                  'Distribution Drive: books and learning material at MP Colony Govt School.',
-                href: '/bachpan',
               },
             ].map((item) => (
               <Link
