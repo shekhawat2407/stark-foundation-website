@@ -40,7 +40,7 @@ export function Navbar() {
             height={40}
             className="h-10 w-auto"
           />
-          <span className="hidden sm:inline text-lg font-semibold tracking-tight text-primary">
+          <span className="text-base sm:text-lg font-semibold tracking-tight text-primary">
             STARK Foundation
           </span>
         </Link>
