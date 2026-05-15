@@ -31,7 +31,7 @@ const milestones = [
   {
     year: '2020',
     title: 'COVID response',
-    body: 'Pandemic response: 6,000+ meal boxes, 4,000+ ration kits, free RT-PCR for the elderly, rent-free oxygen for discharged patients.',
+    body: 'Pandemic response across Bikaner: meals, rations, RT-PCR support and oxygen.',
   },
   {
     year: '2021',
