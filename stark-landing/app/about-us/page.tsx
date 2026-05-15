@@ -60,8 +60,8 @@ type Person = { name: string; role?: string; photo?: string }
 const team: Person[] = [
   { name: 'Gautam Pandey', role: 'Senior Operations Coordinator', photo: '/images/team/gautam-pandey.jpg' },
   { name: 'Meenu Modi', role: 'Trainer', photo: '/images/team/meenu-modi.jpg' },
-  { name: 'Ishu Solanki', role: 'Operations Coordinator' },
-  { name: 'Radhika', role: 'Trainer' },
+  { name: 'Ishu Solanki', role: 'Operations Coordinator', photo: '/images/team/ishu-solanki.jpg' },
+  { name: 'Radhika', role: 'Trainer', photo: '/images/team/radhika.jpg' },
   { name: 'Madhavi Joshi', role: 'Outreach', photo: '/images/team/madhavi-joshi.jpg' },
   { name: 'Aashima Rathore', role: 'Partnerships', photo: '/images/team/aashima-rathore.jpg' },
   { name: 'Pradhyumn Singh', role: 'Treasurer', photo: '/images/team/pradhyumn-singh.jpg' },

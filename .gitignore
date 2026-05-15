@@ -47,12 +47,15 @@ PLAN.md
 /eyecheckup/
 /scraped/
 
-# Stray root-level source images (unused; site uses stark-landing/public/images/)
-/team_picture.jpg
-/hero_bachpan.jpg
-/hero_camps.webp
-/health_replacement.webp
-/IMG_*.jpg
-/IMG_*.JPG
-/IMG-*.jpg
-/IMG-*.JPG
+# Stray root-level source images. The site only uses stark-landing/public/images/;
+# anything dropped at the repo root is staging / scratch and shouldn't be committed.
+/*.jpg
+/*.JPG
+/*.jpeg
+/*.JPEG
+/*.png
+/*.PNG
+/*.webp
+/*.WEBP
+/*.heic
+/*.HEIC
