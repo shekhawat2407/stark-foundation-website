@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react'
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -49,6 +49,9 @@ export function Footer() {
             </a>
             <a aria-label="Twitter" href="https://twitter.com/starkfndn" target="_blank" rel="noreferrer" className="rounded-md border border-border p-1.5 hover:bg-muted">
               <Twitter className="h-3.5 w-3.5" />
+            </a>
+            <a aria-label="LinkedIn" href="https://www.linkedin.com/company/starkfndn" target="_blank" rel="noreferrer" className="rounded-md border border-border p-1.5 hover:bg-muted">
+              <Linkedin className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
