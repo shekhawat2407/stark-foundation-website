@@ -253,6 +253,17 @@ export const activities: Activity[] = [
     partners: ['Maharani Sudarshan College for Women'],
     photo: '/images/gallery/maharani-stitching.jpg',
   },
+  {
+    id: 'water-cooler-bhim-vridha-2026',
+    bucket: 'community-camps',
+    title: 'Water Cooler Donation: Bhim Vridha Ashram',
+    date: 'May 8, 2026',
+    venue: 'Bhim Vridha Ashram, Rani Bazar, Bikaner',
+    description:
+      'Installed a water cooler at Bhim Vridha Ashram to provide cold, safe drinking water to the residents through the Rajasthan summer. Made possible through a donor partner who wished to remain anonymous.',
+    partners: ['Anonymous donor partner'],
+    photo: '/images/gallery/water-cooler-bhim-vridha-2026.jpg',
+  },
 ]
 
 // "Active right now" callouts for the homepage and program pages.

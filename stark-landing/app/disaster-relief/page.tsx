@@ -31,7 +31,7 @@ export default function DisasterRelief() {
         heroImage="/images/12a/image18.jpg"
         imageAlt="STARK Foundation volunteers distributing meals during the 2021 COVID response in Bikaner"
         eyebrow="Programs"
-        title="When the pandemic hit Bikaner."
+        title="When the pandemic hit."
         tagline={program.intro}
       />
 
