@@ -47,12 +47,12 @@ export default function Home() {
               >
                 Donate now <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="/vocational-training"
+              <a
+                href="#programs"
                 className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 backdrop-blur px-5 py-3 text-sm font-semibold hover:bg-white/20"
               >
                 Explore programs
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* What we do — featured + 4 mosaic */}
-      <section className="bg-surface border-b border-border">
+      <section id="programs" className="bg-surface border-b border-border scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
             <div>
