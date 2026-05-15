@@ -21,7 +21,7 @@ export default function VocationalTraining() {
         heroImage="/images/12a/image32.jpg"
         imageAlt="The computer training room at the STARK Foundation Bikaner centre"
         eyebrow="Programs"
-        title="250+ trained. Free. With placements."
+        title="250+ trained. 0 Fee collected."
         tagline={program.intro}
       />
 
