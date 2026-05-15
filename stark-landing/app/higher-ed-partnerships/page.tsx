@@ -27,7 +27,7 @@ export default function HigherEdPartnerships() {
           Find a dormant or under-used facility. Plug in our training. Scale to a college population.
         </h2>
         <p className="text-base text-muted-foreground max-w-3xl mb-10">
-          Two case studies — one concluded (Maharani Sudarshan College) and one
+          Two case studies: one concluded (Maharani Sudarshan College) and one
           just beginning (Engineering College Bikaner).
         </p>
 
@@ -61,10 +61,10 @@ export default function HigherEdPartnerships() {
               </div>
             )}
             <h3 className="text-lg md:text-xl font-semibold">
-              Engineering College Bikaner — AI Workshops
+              Engineering College Bikaner: AI Workshops
             </h3>
             <div className="mt-2 text-sm text-muted-foreground">
-              Since May 2026 — expanding
+              Since May 2026, expanding
             </div>
 
             <p className="mt-4 text-sm text-muted-foreground">

@@ -251,7 +251,7 @@ export const activities: Activity[] = [
     description:
       'Revived a 10-year-dormant computer lab by transferring our computers. Signed a 2-year MOU to run Computer-based Skill Development + Stitching & Fashion Designing courses at the college, at zero fees. First batch (Mar–Jul 2024): 60 computer/typing + 45 stitching. Additional batches followed; ~210 students total across the MOU period.',
     partners: ['Maharani Sudarshan College for Women'],
-    photo: '/images/gallery/maharani-stitching.jpg',
+    photo: '/images/gallery/maharani-mou-2024.jpg',
   },
   {
     id: 'water-cooler-bhim-vridha-2026',
@@ -271,7 +271,7 @@ export const activities: Activity[] = [
     date: 'May 13, 2026',
     venue: 'Engineering College Bikaner, Dept of EICE',
     description:
-      'Introductory session at ECB on Artificial Intelligence and VLSI, organised with the EICE department under HOD Ms. Pooja Bhardwaj. Pradhyumn Singh (Stark Foundation) walked students through AI in industry, the shift from chatbots to autonomous agents, hallucination risks, and tools like Claude Code and Copilot. Madhavi Joshi covered VLSI design tools, hardware languages, and how AI is starting to influence hardware design. A hands-on Phase 2 project in collaboration with the Stark Foundation was announced.',
+      'Introductory session at ECB on Artificial Intelligence and VLSI, organised with the EICE department under HOD Ms. Pooja Bhardwaj. The AI segment walked students through real-world industry use of AI, the shift from chatbots to autonomous agents, hallucination risks, and tools like Claude Code and Copilot. The VLSI segment covered hardware design tools, hardware languages, and how AI is starting to influence hardware design. A hands-on Phase 2 project in collaboration with the Stark Foundation was announced.',
     partners: ['Engineering College Bikaner (EICE Department)'],
     photo: '/images/gallery/ai-workshop-ecb-2026.jpg',
   },

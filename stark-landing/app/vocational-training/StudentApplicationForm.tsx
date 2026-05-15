@@ -51,7 +51,7 @@ export function StudentApplicationForm() {
       <input
         type="hidden"
         name="_subject"
-        value="New student application — Vocational Training Program"
+        value="New student application: Vocational Training Program"
       />
 
       <BilingualField label="Full name" hindi="पूरा नाम" name="name" required />
@@ -135,8 +135,8 @@ export function StudentApplicationForm() {
 
       {status === 'sent' && (
         <p className="text-sm text-emerald-700">
-          Thanks — we&apos;ve received your application. Our team will contact you on the mobile number you provided. /
-          धन्यवाद — आपका आवेदन प्राप्त हो गया है, हमारी टीम जल्द ही आपसे संपर्क करेगी।
+          Thanks. We&apos;ve received your application. Our team will contact you on the mobile number you provided. /
+          धन्यवाद। आपका आवेदन प्राप्त हो गया है, हमारी टीम जल्द ही आपसे संपर्क करेगी।
         </p>
       )}
       {status === 'error' && (

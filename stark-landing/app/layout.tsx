@@ -17,7 +17,7 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: 'STARK Foundation — Skill Development & Education in Bikaner',
+  title: 'STARK Foundation: Skill Development & Education in Bikaner',
   description:
     'S.T.A.R.K. Foundation (Stratifying And Advancing Rural Knowledge) is a Bikaner-based Section-8 non-profit working in skill development, education and disaster relief.',
   icons: {

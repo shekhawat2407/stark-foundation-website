@@ -206,7 +206,7 @@ export default function Home() {
                 src: '/images/gallery/water-cooler-bhim-vridha-2026.jpg',
                 date: 'May 8, 2026',
                 caption:
-                  'Water Cooler Donation: installed at Bhim Vridha Ashram, Rani Bazar — safe cold drinking water through the Rajasthan summer.',
+                  'Water Cooler Donation: installed at Bhim Vridha Ashram, Rani Bazar. Safe cold drinking water through the Rajasthan summer.',
                 href: '/community-camps',
               },
               {
