@@ -161,7 +161,7 @@ export default function AboutUs() {
             How we got here
           </div>
           <h2 className="text-2xl md:text-3xl font-semibold mb-12 max-w-2xl">
-            Seven years, seven milestones.
+            Seven years, many milestones.
           </h2>
           <div className="relative">
             <div
