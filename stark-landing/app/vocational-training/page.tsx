@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { ProgramPageHero } from '@/components/site/program-page-hero'
 import { ActivityCard } from '@/components/site/activity-card'
+import { StudentApplicationForm } from './StudentApplicationForm'
 import {
   centres,
   skillPartners,
@@ -118,6 +119,42 @@ export default function VocationalTraining() {
           </div>
         </section>
       )}
+
+      <section id="apply" className="bg-muted/40 border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20 grid md:grid-cols-2 gap-10 items-start">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
+              Apply / आवेदन करें
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+              Register for a course.
+              <span className="block text-base text-muted-foreground mt-1 font-normal">
+                कोर्स के लिए पंजीकरण करें।
+              </span>
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-md">
+              All courses are free for selected candidates and include a STARK Foundation certificate plus placement support.
+              Our team will call you on the mobile number you provide.
+            </p>
+            <p className="text-sm text-muted-foreground max-w-md mt-3">
+              सभी कोर्स चयनित उम्मीदवारों के लिए नि:शुल्क हैं। प्रमाणपत्र एवं प्लेसमेंट सहायता दी जाती है।
+              हमारी टीम आपके द्वारा दिए गए मोबाइल नंबर पर संपर्क करेगी।
+            </p>
+            <div className="mt-6 text-sm">
+              <div className="font-medium">Questions? / कोई प्रश्न?</div>
+              <div className="text-muted-foreground mt-1">
+                Call / WhatsApp <strong>+91 70142 37837</strong>
+                <br />
+                Email{' '}
+                <a className="underline" href="mailto:hello@starkfoundation.in">
+                  hello@starkfoundation.in
+                </a>
+              </div>
+            </div>
+          </div>
+          <StudentApplicationForm />
+        </div>
+      </section>
 
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20 grid md:grid-cols-2 gap-8 items-center">
