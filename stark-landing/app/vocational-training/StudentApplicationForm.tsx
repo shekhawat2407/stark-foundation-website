@@ -2,10 +2,7 @@
 
 import { useState } from 'react'
 
-// TODO: replace with the dedicated Formspree endpoint for student applications
-// (create one at https://formspree.io/forms — recommended so responses don't mix
-// with volunteer / contact submissions). Reuses the volunteer endpoint until then.
-const ENDPOINT = 'https://formspree.io/f/mdabrajn'
+const ENDPOINT = 'https://formspree.io/f/xnjwkyqb'
 
 const courses = [
   'Basic Computer Course / बेसिक कंप्यूटर कोर्स (3 months)',
