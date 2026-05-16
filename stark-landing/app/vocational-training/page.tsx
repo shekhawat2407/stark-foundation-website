@@ -81,6 +81,73 @@ export default function VocationalTraining() {
         </div>
       </section>
 
+      {/* In session right now */}
+      <section className="bg-surface border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20">
+          <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
+            In session right now
+          </div>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-3 max-w-2xl">
+            Two live batches at the Bikaner centre.
+          </h2>
+          <p className="text-base text-muted-foreground max-w-2xl mb-10">
+            Both started May 2026, 12 students each. Mid-session at the time of writing.
+          </p>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                src: '/images/gallery/batch-computer-bikaner.jpg',
+                course: 'Basic Computer',
+                cohort: 'May 2026 cohort',
+                strength: '12 students',
+                duration: '3 months',
+                centre: 'Bikaner centre',
+              },
+              {
+                src: '/images/gallery/batch-stitching-bikaner.jpg',
+                course: 'Stitching & Dress Designing',
+                cohort: 'May 2026 cohort',
+                strength: '12 students',
+                duration: '3 / 6 months',
+                centre: 'Bikaner centre',
+              },
+            ].map((b) => (
+              <div
+                key={b.course}
+                className="rounded-lg overflow-hidden border border-border bg-card flex flex-col"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <Image
+                    src={b.src}
+                    alt={`${b.course} batch in session at the Bikaner centre`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
+                    {b.cohort}
+                  </div>
+                  <div className="text-lg font-semibold">{b.course}</div>
+                  <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                    <span>
+                      <span className="font-medium text-foreground/80">Strength:</span> {b.strength}
+                    </span>
+                    <span>
+                      <span className="font-medium text-foreground/80">Duration:</span> {b.duration}
+                    </span>
+                    <span>
+                      <span className="font-medium text-foreground/80">Where:</span> {b.centre}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 md:px-6 py-12 border-b border-border">
         <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground text-center mb-6">
           Skill partners
