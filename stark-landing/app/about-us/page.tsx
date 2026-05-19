@@ -68,7 +68,7 @@ const team: Person[] = [
   { name: 'Ishu Solanki', role: 'Operations Coordinator', photo: '/images/team/ishu-solanki.jpg' },
   { name: 'Radhika Meena', role: 'Trainer', photo: '/images/team/radhika-meena.jpg' },
   { name: 'Madhavi Joshi', role: 'Outreach', photo: '/images/team/madhavi-joshi.jpg' },
-  { name: 'Mohit Gaba', role: 'IT & Equipment Lead', photo: '/images/team/mohit-gaba.jpg' },
+  { name: 'Mohit Gaba', role: 'Hardware Lead', photo: '/images/team/mohit-gaba.jpg' },
   { name: 'Aashima Rathore', role: 'Partnerships', photo: '/images/team/aashima-rathore.jpg' },
   { name: 'Pradhyumn Singh', role: 'Treasurer', photo: '/images/team/pradhyumn-singh.jpg' },
 ]
