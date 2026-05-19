@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Printer } from 'lucide-react'
+import { PrintButton } from './PrintButton'
 
 export const metadata: Metadata = {
   title: 'Stakeholder Report 2026 | STARK Foundation',
@@ -529,13 +529,3 @@ function EngageBlock({ heading, body, sponsors }: { heading: string; body: strin
   )
 }
 
-function PrintButton() {
-  return (
-    <form action="javascript:window.print()">
-      <button type="submit" className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:bg-accent/90">
-        <Printer className="h-4 w-4" />
-        Print / Save as PDF
-      </button>
-    </form>
-  )
-}
