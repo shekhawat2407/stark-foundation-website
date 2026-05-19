@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Printer } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -11,36 +12,39 @@ export const metadata: Metadata = {
 export default function Report2026() {
   return (
     <div className="bg-background">
-      {/* Print/download controls — hidden on print */}
       <div className="print:hidden border-b border-border bg-surface">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
           <div className="text-xs text-muted-foreground">
-            Stakeholder Report — printable. Use your browser&apos;s Print →
-            Save as PDF to download.
+            Stakeholder Report — printable. Use the button or your browser&apos;s Print → Save as PDF.
           </div>
-          <div className="flex items-center gap-2">
-            <PrintButton />
-          </div>
+          <PrintButton />
         </div>
       </div>
 
       <main className="mx-auto max-w-5xl px-4 md:px-6 py-12 md:py-16 print:py-6">
-        {/* Cover */}
+        {/* === COVER === */}
         <section className="border-b border-border pb-10 mb-10 print:break-after-page">
-          <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-4">
-            Stakeholder Report · 2026
+          <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-lg overflow-hidden mb-8 bg-muted">
+            <Image
+              src="/images/gallery/adhigam-2023.jpg"
+              alt="Hundreds of govt school students gathered at the Adhigam summer learning camp"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-white">
+              <div className="text-xs font-semibold uppercase tracking-wider mb-2 text-white/85">
+                Stakeholder Report · 2026
+              </div>
+              <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+                STARK Foundation
+              </h1>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-primary mb-4">
-            STARK Foundation
-          </h1>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
-            <span className="font-medium text-foreground">
-              S.T.A.R.K. Foundation
-            </span>{' '}
-            (Stratifying And Advancing Rural Knowledge). Registered Section-8
-            non-profit working in skill development, education and disaster
-            relief across rural and underserved Rajasthan. Headquartered in
-            Bikaner. Operating since 2019.
+            <span className="font-medium text-foreground">S.T.A.R.K. Foundation</span> (Stratifying And Advancing Rural Knowledge). Registered Section-8 non-profit working in skill development, education and disaster relief across rural and underserved Rajasthan. Headquartered in Bikaner. Operating since 2019.
           </p>
           <div className="mt-6 text-sm text-muted-foreground flex flex-wrap gap-x-6 gap-y-1">
             <span>hello@starkfoundation.in</span>
@@ -49,7 +53,7 @@ export default function Report2026() {
           </div>
         </section>
 
-        {/* At a glance — stats grid */}
+        {/* === AT A GLANCE === */}
         <Section title="At a glance" eyebrow="Section 01">
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 mb-6">
             {[
@@ -58,10 +62,7 @@ export default function Report2026() {
               { v: '4,200+', l: 'Served via camps & drives' },
               { v: '7 yrs', l: 'On the ground since 2019' },
             ].map((s) => (
-              <div
-                key={s.l}
-                className="rounded-lg border border-border bg-card p-5"
-              >
+              <div key={s.l} className="rounded-lg border border-border bg-card p-5">
                 <div className="text-3xl font-semibold text-primary">{s.v}</div>
                 <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
               </div>
@@ -70,10 +71,7 @@ export default function Report2026() {
           <FactGrid
             rows={[
               ['Founded', '2019'],
-              [
-                'Legal status',
-                'Section-8 Non-Profit, registered under Sections 12A & 80G of the Income Tax Act',
-              ],
+              ['Legal status', 'Section-8 Non-Profit, registered under Sections 12A & 80G of the Income Tax Act'],
               ['Headquarters', 'Bikaner, Rajasthan'],
               ['Centres', '2 (Bikaner, Pundalsar)'],
               ['Core team', '8 members'],
@@ -82,108 +80,102 @@ export default function Report2026() {
           />
         </Section>
 
-        {/* Mission */}
+        {/* === MISSION === */}
         <Section title="Mission" eyebrow="Section 02">
-          <p className="text-base md:text-lg leading-relaxed mb-4">
-            STARK Foundation works in{' '}
-            <strong>rural and underserved Rajasthan</strong> to remove the gap
-            between potential and opportunity. We do this by running
-            fully-funded skill development programs, supporting government
-            schools, and stepping up during community emergencies.
-          </p>
-          <p className="text-sm text-muted-foreground mb-4">
-            Our work is anchored on four principles:
-          </p>
-          <ol className="list-decimal pl-6 space-y-2 text-sm md:text-base">
-            <li>
-              <strong>Free at the point of delivery.</strong> No fees from
-              students.
-            </li>
-            <li>
-              <strong>Partner over duplicate.</strong> We work with schools,
-              colleges and government bodies rather than building parallel
-              systems.
-            </li>
-            <li>
-              <strong>Measured in placements, not enrolments.</strong> Success
-              is post-program employability.
-            </li>
-            <li>
-              <strong>Transparent and on the record.</strong> Every project has
-              a date, venue, beneficiary count, and spend recorded.
-            </li>
-          </ol>
+          <div className="grid md:grid-cols-[2fr_1fr] gap-6 md:gap-10 items-start">
+            <div>
+              <p className="text-base md:text-lg leading-relaxed mb-4">
+                STARK Foundation works in <strong>rural and underserved Rajasthan</strong> to remove the gap between potential and opportunity. We do this by running fully-funded skill development programs, supporting government schools, and stepping up during community emergencies.
+              </p>
+              <p className="text-sm text-muted-foreground mb-3">Our work is anchored on four principles:</p>
+              <ol className="list-decimal pl-6 space-y-2 text-sm md:text-base">
+                <li><strong>Free at the point of delivery.</strong> No fees from students.</li>
+                <li><strong>Partner over duplicate.</strong> We work with schools, colleges and government bodies rather than building parallel systems.</li>
+                <li><strong>Measured in placements, not enrolments.</strong> Success is post-program employability.</li>
+                <li><strong>Transparent and on the record.</strong> Every project has a date, venue, beneficiary count, and spend recorded.</li>
+              </ol>
+            </div>
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-muted">
+              <Image
+                src="/images/gallery/team-picture.jpg"
+                alt="STARK Foundation team"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
         </Section>
 
-        {/* Programs */}
+        {/* === PROGRAMS === */}
         <Section title="What we do — five programs" eyebrow="Section 03">
           <div className="space-y-5">
             <ProgramCard
               n="01"
-              title="Vocational Training"
               tag="Flagship"
+              title="Vocational Training"
               body="Free certified courses in computer skills, accounting, and stitching & fashion design. Two centres in Bikaner and Pundalsar with placement support for selected candidates."
               extras={[
                 'Courses: Basic Computer · Hindi/English Typing · MS Excel & Office · Tally & Accounting · Stitching (certificate + diploma) · Fashion Designing',
                 'Skill partners: Tally Education · Singer India',
               ]}
+              photo="/images/gallery/vocational-training-class.jpg"
+              alt="Vocational training class at the Bikaner centre"
             />
             <ProgramCard
               n="02"
-              title="Bachpan — Children's Education"
               tag="Children"
+              title="Bachpan — Children's Education"
               body="Summer learning camps in government schools, weekend workshops, study-kit drives, and ongoing work with kids in slum areas and government schools."
-              extras={[
-                'Flagship initiative: Adhigam — summer learning camp launched 2023, second edition running May–June 2026 across a broader school list.',
-              ]}
+              extras={['Flagship initiative: Adhigam — summer learning camp launched 2023, second edition running May–June 2026 across a broader school list.']}
+              photo="/images/gallery/hero-bachpan.jpg"
+              alt="Children at a Bachpan workshop"
             />
             <ProgramCard
               n="03"
-              title="Higher-Ed Partnerships"
               tag="Colleges"
+              title="Higher-Ed Partnerships"
               body="We partner with colleges to revive dormant facilities and run free, future-facing courses."
               extras={[
                 'Maharani Sudarshan College for Women — 2-year vocational training MOU (Feb 2024 – Feb 2026), ~210 students trained',
-                'Engineering College Bikaner — AI Workshops (May 2026 onwards). Phase 1 delivered; hands-on Phase 2 project in scoping.',
+                'Engineering College Bikaner — AI Workshops (May 2026 onwards). Phase 1 delivered; Phase 2 hands-on project in scoping.',
               ]}
+              photo="/images/gallery/maharani-mou-2024.jpg"
+              alt="Maharani Sudarshan College vocational training MOU"
             />
             <ProgramCard
               n="04"
-              title="Community Camps"
               tag="CSR"
+              title="Community Camps"
               body="Mobile health camps, eye check-ups, and community welfare drives funded by our CSR partners."
-              extras={[
-                'Examples: Eye Check-Up Camp at Udasar (290 beneficiaries) · Health Camp at Vaishno Dham (130) · Water cooler donation at Bhim Vridha Ashram, May 2026',
-              ]}
+              extras={['Examples: Eye Check-Up Camp at Udasar (290 beneficiaries) · Health Camp at Vaishno Dham (130) · Water cooler donation at Bhim Vridha Ashram, May 2026']}
+              photo="/images/gallery/hero-camps.jpg"
+              alt="Community welfare camp run by STARK Foundation"
             />
             <ProgramCard
               n="05"
-              title="Disaster Relief"
               tag="Emergency"
-              body="COVID-19 response, 2021: 6,000+ meal boxes delivered to patients, 4,000+ ration kits to families with disrupted livelihoods, free home RT-PCR sample collection for residents aged 60+ (coordinated with the Central Medical Health Office, Bikaner), and rent-free oxygen concentrators for discharged patients."
+              title="Disaster Relief"
+              body="COVID-19 response, 2021: 6,000+ meal boxes delivered to patients, 4,000+ ration kits to families with disrupted livelihoods, free home RT-PCR sample collection for residents aged 60+ (with the Central Medical Health Office, Bikaner), and rent-free oxygen concentrators for discharged patients."
+              photo="/images/12a/image18.jpg"
+              alt="STARK Foundation volunteers distributing meal boxes during COVID 2021"
             />
           </div>
         </Section>
 
-        {/* Centres */}
+        {/* === CENTRES === */}
         <Section title="Where we work — our centres" eyebrow="Section 04">
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2">
             <CentreCard
               tag="Centre 1"
               name="Bikaner"
               location="Behind Sardar Hall, Mehron Ka Mohalla"
               opened="June 2021"
               trained="250+"
-              tracks={[
-                'Basic Computer',
-                'Hindi/English Typing',
-                'MS Excel & Office',
-                'Tally & Accounting',
-                'Stitching: Certificate',
-                'Stitching: Diploma',
-                'Fashion Designing',
-              ]}
+              tracks={['Basic Computer','Hindi/English Typing','MS Excel & Office','Tally & Accounting','Stitching: Certificate','Stitching: Diploma','Fashion Designing']}
               note="Currently running two live cohorts (May 2026): Basic Computer (12 students) and Stitching & Dress Designing (12 students)."
+              photo="/images/gallery/batch-computer-bikaner.jpg"
+              alt="Basic Computer batch in session at Bikaner centre"
             />
             <CentreCard
               tag="Centre 2"
@@ -193,11 +185,13 @@ export default function Report2026() {
               trained="10+"
               tracks={['Stitching: Certificate', 'Fashion Designing']}
               note="Run directly by STARK Foundation."
+              photo="/images/gallery/maharani-stitching.jpg"
+              alt="Stitching training session"
             />
           </div>
         </Section>
 
-        {/* Timeline */}
+        {/* === TIMELINE === */}
         <Section title="Seven years, many milestones" eyebrow="Section 05">
           <Timeline
             items={[
@@ -213,7 +207,7 @@ export default function Report2026() {
           />
         </Section>
 
-        {/* Case studies */}
+        {/* === CASE STUDIES === */}
         <Section title="Featured case studies" eyebrow="Section 06">
           <div className="space-y-6">
             <CaseStudy
@@ -223,6 +217,8 @@ export default function Report2026() {
               spend="₹6.58 lakh"
               beneficiaries="~1,500 families"
               body="A six-week, full-scale emergency response in Bikaner. 6,000+ meal boxes to COVID patients at their doorstep. 4,000+ ration kits to families with disrupted livelihoods. Free home RT-PCR sample collection for residents aged 60+ coordinated with the Central Medical Health Office, Bikaner. Oxygen concentrators distributed rent-free to discharged patients recovering at home."
+              photo="/images/12a/image18.jpg"
+              alt="COVID 2021 meal box distribution in Bikaner"
             />
             <CaseStudy
               n="Case 02"
@@ -231,6 +227,8 @@ export default function Report2026() {
               spend="₹1.13 lakh"
               beneficiaries="~210 students trained"
               body="A 2-year academic partnership that revived a 10-year-dormant computer lab. We transferred computers from our Bikaner centre to launch Computer-based Skill Development and Stitching & Fashion Designing programs at zero fees to students. First cohort (Mar–Jul 2024): 60 computer/typing + 45 stitching students. Multiple batches followed."
+              photo="/images/gallery/maharani-mou-2024.jpg"
+              alt="Maharani Sudarshan College MOU"
             />
             <CaseStudy
               n="Case 03"
@@ -239,6 +237,8 @@ export default function Report2026() {
               spend="—"
               beneficiaries="Engineering students, EICE Dept"
               body="New higher-ed partnership with the EICE Department under HOD Ms. Pooja Bhardwaj. Phase 1 introductory session covered AI in industry, the shift from chatbots to autonomous agents, hallucination risks, and tools like Claude Code and Copilot. VLSI segment covered hardware design tools and how AI is starting to influence hardware design. Phase 2 hands-on project in scoping."
+              photo="/images/gallery/ai-workshop-ecb-2026.jpg"
+              alt="AI Workshop Phase 1 at Engineering College Bikaner"
             />
             <CaseStudy
               n="Case 04"
@@ -247,130 +247,75 @@ export default function Report2026() {
               spend="₹1.16 lakh"
               beneficiaries="290"
               body="Mobile camp delivering low-cost eye care to rural communities, with primary emphasis on cataract identification and treatment. Funded by our CSR partner BkESL (Bikaner Electricity Supply)."
+              photo="/images/gallery/eye-camp-composite.jpg"
+              alt="Eye check-up camp at Udasar"
             />
           </div>
         </Section>
 
-        {/* Currently active */}
+        {/* === CURRENTLY ACTIVE === */}
         <Section title="Currently active (May 2026)" eyebrow="Section 07">
-          <ul className="space-y-3 text-sm md:text-base">
-            <ActiveItem
+          <div className="grid gap-5 sm:grid-cols-2">
+            <ActiveCard
+              photo="/images/gallery/adhigam-2023.jpg"
+              alt="Adhigam summer learning camp"
               title="Adhigam 2026"
               detail="Second-edition summer learning camp launching this month with a broader school list than the 2023 inaugural edition."
             />
-            <ActiveItem
+            <ActiveCard
+              photo="/images/gallery/ai-workshop-ecb-2026.jpg"
+              alt="AI Workshop at ECB"
               title="AI Workshops at ECB"
               detail="Phase 1 delivered. Phase 2 hands-on project in scoping."
             />
-            <ActiveItem
-              title="Bikaner centre cohorts"
-              detail="Basic Computer (12 students) + Stitching (12 students), both May 2026 cohorts, mid-session."
+            <ActiveCard
+              photo="/images/gallery/batch-computer-bikaner.jpg"
+              alt="Basic Computer batch at Bikaner centre"
+              title="Bikaner Centre — May 2026 cohorts"
+              detail="Basic Computer (12 students) + Stitching (12 students), both mid-session."
             />
-            <ActiveItem
-              title="Pundalsar centre"
-              detail="Stitching cohorts running directly under STARK."
+            <ActiveCard
+              photo="/images/gallery/maharani-stitching.jpg"
+              alt="Stitching training session"
+              title="Pundalsar Centre"
+              detail="Stitching cohorts running directly under STARK Foundation."
             />
-          </ul>
+          </div>
         </Section>
 
-        {/* Partners */}
+        {/* === PARTNERS === */}
         <Section title="Partners" eyebrow="Section 08">
           <div className="grid gap-4 md:grid-cols-2">
-            <PartnerBlock
-              heading="Skill Partners"
-              items={['Tally Education', 'Singer India']}
-            />
-            <PartnerBlock
-              heading="CSR Partners"
-              items={[
-                'BkESL (Bikaner Electricity Supply)',
-                'Confluxsys Private Limited',
-              ]}
-            />
-            <PartnerBlock
-              heading="NGO Collaborators"
-              items={[
-                'Robin Hood Army',
-                'Youth Against Illiteracy (YAI)',
-                'Vrikshit Foundation',
-              ]}
-            />
-            <PartnerBlock
-              heading="Academic Partners"
-              items={[
-                'Maharani Sudarshan College for Women',
-                'Engineering College Bikaner — EICE Dept',
-              ]}
-            />
+            <PartnerBlock heading="Skill Partners" items={['Tally Education', 'Singer India']} />
+            <PartnerBlock heading="CSR Partners" items={['BkESL (Bikaner Electricity Supply)','Confluxsys Private Limited']} />
+            <PartnerBlock heading="NGO Collaborators" items={['Robin Hood Army','Youth Against Illiteracy (YAI)','Vrikshit Foundation']} />
+            <PartnerBlock heading="Academic Partners" items={['Maharani Sudarshan College for Women','Engineering College Bikaner — EICE Dept']} />
           </div>
         </Section>
 
-        {/* Team */}
-        <Section title="Team & governance" eyebrow="Section 09">
-          <div className="text-sm font-semibold uppercase tracking-wider text-foreground/70 mb-3">
-            Core team
-          </div>
-          <FactGrid
-            rows={[
-              ['Gautam Pandey', 'Senior Operations Coordinator'],
-              ['Meenu Modi', 'Trainer'],
-              ['Ishu Solanki', 'Operations Coordinator'],
-              ['Radhika Meena', 'Trainer'],
-              ['Madhavi Joshi', 'Outreach'],
-              ['Mohit Gaba', 'Hardware Lead'],
-              ['Aashima Rathore', 'Partnerships'],
-              ['Pradhyumn Singh', 'Treasurer'],
-            ]}
-          />
-          <div className="text-sm font-semibold uppercase tracking-wider text-foreground/70 mt-8 mb-3">
-            Advisory board
-          </div>
-          <FactGrid
-            rows={[
-              ['Mohit Khatri', 'Advisor'],
-              ['Ankita Shukla', 'Advisor'],
-              ['Pranvendra Chaturvedi', 'Advisor'],
-              ['Samar Haldey', 'Advisor'],
-            ]}
-          />
-        </Section>
-
-        {/* Note from foundation */}
-        <Section title="A note from the foundation" eyebrow="Section 10">
-          <div className="prose-blockquote text-base md:text-lg leading-relaxed space-y-4 text-foreground/85">
-            <p>
-              Every line in this document — every batch number, every camp
-              date — started as someone in our Bikaner team knocking on a
-              door, calling a parent, or staying late at the centre to finish
-              a fix.
-            </p>
-            <p>
-              The numbers matter. But the work is, finally, hand-to-hand. A
-              trainer who shows up for the third batch this year. A student
-              who passes the Tally exam and gets her first job. A donor who
-              funds a water cooler for an old age home and asks us not to name
-              them.
-            </p>
-            <p>
-              We&apos;ve kept records of all of it. We share them
-              transparently because{' '}
-              <strong>
-                we&apos;d rather be a small organisation that&apos;s been
-                honest about every rupee for seven years, than a big one that
-                lost track of what it stands for
-              </strong>
-              .
-            </p>
-            <p>
-              If you&apos;re reading this as a CSR partner, a potential donor,
-              or a fellow NGO — there is genuine work to do together, in this
-              town, this year. Reach out.
-            </p>
+        {/* === NOTE FROM FOUNDATION === */}
+        <Section title="A note from the foundation" eyebrow="Section 09">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-6 md:gap-10 items-start">
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-muted">
+              <Image
+                src="/images/gallery/frocks-childrens-day-2021.jpg"
+                alt="Children's Day 2021 frocks handed to slum kids"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="text-base md:text-lg leading-relaxed space-y-4 text-foreground/85">
+              <p>Every line in this document — every batch number, every camp date — started as someone in our Bikaner team knocking on a door, calling a parent, or staying late at the centre to finish a fix.</p>
+              <p>The numbers matter. But the work is, finally, hand-to-hand. A trainer who shows up for the third batch this year. A student who passes the Tally exam and gets her first job. A donor who funds a water cooler for an old age home and asks us not to name them.</p>
+              <p>We&apos;ve kept records of all of it. We share them transparently because <strong>we&apos;d rather be a small organisation that&apos;s been honest about every rupee for seven years, than a big one that lost track of what it stands for</strong>.</p>
+              <p>If you&apos;re reading this as a CSR partner, a potential donor, or a fellow NGO — there is genuine work to do together, in this town, this year. Reach out.</p>
+            </div>
           </div>
         </Section>
 
-        {/* How to engage */}
-        <Section title="How to engage" eyebrow="Section 11">
+        {/* === HOW TO ENGAGE === */}
+        <Section title="How to engage" eyebrow="Section 10">
           <EngageBlock
             heading="1. Donate"
             body="Razorpay (one-time/recurring) at starkfoundation.in/donate-now. 80G tax deduction applies on monetary donations. In-kind donations of devices, sewing machines, books — through Digital Pahel (starkfoundation.in/digital-pahel)."
@@ -392,8 +337,8 @@ export default function Report2026() {
           />
         </Section>
 
-        {/* Contact */}
-        <Section title="Contact" eyebrow="Section 12" last>
+        {/* === CONTACT === */}
+        <Section title="Contact" eyebrow="Section 11" last>
           <FactGrid
             rows={[
               ['Address', 'Behind Sardar Hall, Mehron Ka Mohalla, Bikaner, Rajasthan'],
@@ -404,9 +349,7 @@ export default function Report2026() {
             ]}
           />
           <p className="mt-8 text-xs text-muted-foreground italic">
-            This report was prepared for stakeholder distribution. Numbers
-            reflect cumulative on-ground delivery from 2019 through May 2026
-            and are documented in our 12A/80G filings.
+            This report was prepared for stakeholder distribution. Numbers reflect cumulative on-ground delivery from 2019 through May 2026 and are documented in our 12A/80G filings.
           </p>
         </Section>
 
@@ -424,26 +367,12 @@ export default function Report2026() {
   )
 }
 
-function Section({
-  title,
-  eyebrow,
-  children,
-  last,
-}: {
-  title: string
-  eyebrow: string
-  children: React.ReactNode
-  last?: boolean
-}) {
+// === Components ===
+
+function Section({ title, eyebrow, children, last }: { title: string; eyebrow: string; children: React.ReactNode; last?: boolean }) {
   return (
-    <section
-      className={`py-8 md:py-10 ${
-        last ? '' : 'border-b border-border mb-2'
-      } print:break-inside-avoid`}
-    >
-      <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
-        {eyebrow}
-      </div>
+    <section className={`py-8 md:py-10 ${last ? '' : 'border-b border-border mb-2'} print:break-inside-avoid`}>
+      <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">{eyebrow}</div>
       <h2 className="text-2xl md:text-3xl font-semibold mb-6">{title}</h2>
       {children}
     </section>
@@ -454,10 +383,7 @@ function FactGrid({ rows }: { rows: [string, string][] }) {
   return (
     <dl className="divide-y divide-border border-y border-border">
       {rows.map(([k, v]) => (
-        <div
-          key={k}
-          className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4 py-3"
-        >
+        <div key={k} className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-4 py-3">
           <dt className="text-sm font-semibold text-foreground/80">{k}</dt>
           <dd className="md:col-span-2 text-sm">{v}</dd>
         </div>
@@ -466,83 +392,51 @@ function FactGrid({ rows }: { rows: [string, string][] }) {
   )
 }
 
-function ProgramCard({
-  n,
-  title,
-  tag,
-  body,
-  extras,
-}: {
-  n: string
-  title: string
-  tag: string
-  body: string
-  extras?: string[]
-}) {
+function ProgramCard({ n, title, tag, body, extras, photo, alt }: { n: string; title: string; tag: string; body: string; extras?: string[]; photo: string; alt: string }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-5 md:p-6 print:break-inside-avoid">
-      <div className="flex items-baseline justify-between mb-2">
-        <div className="text-xs font-semibold text-muted-foreground">{n}</div>
-        <div className="text-xs rounded-full bg-muted px-2 py-0.5">{tag}</div>
+    <div className="rounded-lg border border-border bg-card overflow-hidden grid md:grid-cols-[200px_1fr] print:break-inside-avoid">
+      <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[160px] bg-muted">
+        <Image src={photo} alt={alt} fill sizes="(max-width: 768px) 100vw, 200px" className="object-cover" />
       </div>
-      <h3 className="text-lg md:text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground">{body}</p>
-      {extras && extras.length > 0 && (
-        <ul className="mt-3 space-y-1 text-xs text-foreground/75 list-disc pl-5">
-          {extras.map((e) => (
-            <li key={e}>{e}</li>
-          ))}
-        </ul>
-      )}
+      <div className="p-5 md:p-6">
+        <div className="flex items-baseline justify-between mb-2">
+          <div className="text-xs font-semibold text-muted-foreground">{n}</div>
+          <div className="text-xs rounded-full bg-muted px-2 py-0.5">{tag}</div>
+        </div>
+        <h3 className="text-lg md:text-xl font-semibold mb-2">{title}</h3>
+        <p className="text-sm text-muted-foreground">{body}</p>
+        {extras && extras.length > 0 && (
+          <ul className="mt-3 space-y-1 text-xs text-foreground/75 list-disc pl-5">
+            {extras.map((e) => <li key={e}>{e}</li>)}
+          </ul>
+        )}
+      </div>
     </div>
   )
 }
 
-function CentreCard({
-  tag,
-  name,
-  location,
-  opened,
-  trained,
-  tracks,
-  note,
-}: {
-  tag: string
-  name: string
-  location: string
-  opened: string
-  trained: string
-  tracks: string[]
-  note?: string
-}) {
+function CentreCard({ tag, name, location, opened, trained, tracks, note, photo, alt }: { tag: string; name: string; location: string; opened: string; trained: string; tracks: string[]; note?: string; photo: string; alt: string }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-5 print:break-inside-avoid">
-      <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">
-        {tag}
+    <div className="rounded-lg border border-border bg-card overflow-hidden flex flex-col print:break-inside-avoid">
+      <div className="relative aspect-[4/3] bg-muted">
+        <Image src={photo} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       </div>
-      <div className="text-lg font-semibold">{name}</div>
-      <div className="text-sm text-muted-foreground mt-1">{location}</div>
-      <div className="mt-3 flex flex-wrap gap-4 text-xs text-muted-foreground">
-        <span>
-          <span className="font-medium text-foreground/80">Opened:</span>{' '}
-          {opened}
-        </span>
-        <span>
-          <span className="font-medium text-foreground/80">Trained:</span>{' '}
-          {trained}
-        </span>
+      <div className="p-5">
+        <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">{tag}</div>
+        <div className="text-lg font-semibold">{name}</div>
+        <div className="text-sm text-muted-foreground mt-1">{location}</div>
+        <div className="mt-3 flex flex-wrap gap-4 text-xs text-muted-foreground">
+          <span><span className="font-medium text-foreground/80">Opened:</span> {opened}</span>
+          <span><span className="font-medium text-foreground/80">Trained:</span> {trained}</span>
+        </div>
+        <div className="mt-3 text-xs font-semibold text-foreground/80">Courses</div>
+        <div className="mt-1 flex flex-wrap gap-1.5">
+          {tracks.map((t) => (
+            <span key={t} className="rounded-full bg-muted px-2.5 py-0.5 text-xs">{t}</span>
+          ))}
+        </div>
+        {note && <p className="mt-3 text-xs text-foreground/75">{note}</p>}
       </div>
-      <div className="mt-3 text-xs font-semibold text-foreground/80">
-        Courses
-      </div>
-      <div className="mt-1 flex flex-wrap gap-1.5">
-        {tracks.map((t) => (
-          <span key={t} className="rounded-full bg-muted px-2.5 py-0.5 text-xs">
-            {t}
-          </span>
-        ))}
-      </div>
-      {note && <p className="mt-3 text-xs text-foreground/75">{note}</p>}
     </div>
   )
 }
@@ -551,13 +445,8 @@ function Timeline({ items }: { items: { y: string; t: string; d: string }[] }) {
   return (
     <ol className="space-y-3 print:break-inside-avoid">
       {items.map((it) => (
-        <li
-          key={it.y}
-          className="grid grid-cols-[60px_1fr] gap-3 md:gap-5 items-start border-b border-border pb-3 last:border-0"
-        >
-          <div className="text-xl md:text-2xl font-bold text-primary">
-            {it.y}
-          </div>
+        <li key={it.y} className="grid grid-cols-[60px_1fr] gap-3 md:gap-5 items-start border-b border-border pb-3 last:border-0">
+          <div className="text-xl md:text-2xl font-bold text-primary">{it.y}</div>
           <div>
             <div className="text-base font-semibold">{it.t}</div>
             <div className="text-sm text-muted-foreground">{it.d}</div>
@@ -568,90 +457,60 @@ function Timeline({ items }: { items: { y: string; t: string; d: string }[] }) {
   )
 }
 
-function CaseStudy({
-  n,
-  title,
-  when,
-  spend,
-  beneficiaries,
-  body,
-}: {
-  n: string
-  title: string
-  when: string
-  spend: string
-  beneficiaries: string
-  body: string
-}) {
+function CaseStudy({ n, title, when, spend, beneficiaries, body, photo, alt }: { n: string; title: string; when: string; spend: string; beneficiaries: string; body: string; photo: string; alt: string }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-5 md:p-6 print:break-inside-avoid">
-      <div className="flex items-baseline justify-between mb-2 flex-wrap gap-2">
-        <div className="text-xs font-semibold uppercase tracking-wider text-accent">
-          {n}
-        </div>
-        <div className="text-xs text-muted-foreground">{when}</div>
+    <div className="rounded-lg border border-border bg-card overflow-hidden print:break-inside-avoid">
+      <div className="relative aspect-[16/9] bg-muted">
+        <Image src={photo} alt={alt} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" />
       </div>
-      <h3 className="text-lg md:text-xl font-semibold mb-3">{title}</h3>
-      <div className="grid grid-cols-2 gap-3 mb-3 text-xs">
-        <div className="rounded-md bg-muted px-3 py-2">
-          <div className="font-semibold">Spend</div>
-          <div className="text-foreground/75">{spend}</div>
+      <div className="p-5 md:p-6">
+        <div className="flex items-baseline justify-between mb-2 flex-wrap gap-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-accent">{n}</div>
+          <div className="text-xs text-muted-foreground">{when}</div>
         </div>
-        <div className="rounded-md bg-muted px-3 py-2">
-          <div className="font-semibold">Beneficiaries</div>
-          <div className="text-foreground/75">{beneficiaries}</div>
+        <h3 className="text-lg md:text-xl font-semibold mb-3">{title}</h3>
+        <div className="grid grid-cols-2 gap-3 mb-3 text-xs">
+          <div className="rounded-md bg-muted px-3 py-2">
+            <div className="font-semibold">Spend</div>
+            <div className="text-foreground/75">{spend}</div>
+          </div>
+          <div className="rounded-md bg-muted px-3 py-2">
+            <div className="font-semibold">Beneficiaries</div>
+            <div className="text-foreground/75">{beneficiaries}</div>
+          </div>
         </div>
+        <p className="text-sm text-muted-foreground">{body}</p>
       </div>
-      <p className="text-sm text-muted-foreground">{body}</p>
     </div>
   )
 }
 
-function ActiveItem({ title, detail }: { title: string; detail: string }) {
+function ActiveCard({ photo, alt, title, detail }: { photo: string; alt: string; title: string; detail: string }) {
   return (
-    <li className="flex gap-3 items-start">
-      <span
-        aria-hidden
-        className="mt-1.5 h-2 w-2 rounded-full bg-accent shrink-0"
-      />
-      <div>
-        <span className="font-semibold">{title}.</span>{' '}
-        <span className="text-muted-foreground">{detail}</span>
+    <div className="rounded-lg border border-border bg-card overflow-hidden flex flex-col print:break-inside-avoid">
+      <div className="relative aspect-[4/3] bg-muted">
+        <Image src={photo} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       </div>
-    </li>
+      <div className="p-5">
+        <div className="text-base font-semibold mb-1">{title}</div>
+        <p className="text-sm text-muted-foreground">{detail}</p>
+      </div>
+    </div>
   )
 }
 
-function PartnerBlock({
-  heading,
-  items,
-}: {
-  heading: string
-  items: string[]
-}) {
+function PartnerBlock({ heading, items }: { heading: string; items: string[] }) {
   return (
     <div className="rounded-lg border border-border bg-card p-5">
-      <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
-        {heading}
-      </div>
+      <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">{heading}</div>
       <ul className="space-y-1 text-sm">
-        {items.map((i) => (
-          <li key={i}>{i}</li>
-        ))}
+        {items.map((i) => <li key={i}>{i}</li>)}
       </ul>
     </div>
   )
 }
 
-function EngageBlock({
-  heading,
-  body,
-  sponsors,
-}: {
-  heading: string
-  body: string
-  sponsors?: { label: string; val: string }[]
-}) {
+function EngageBlock({ heading, body, sponsors }: { heading: string; body: string; sponsors?: { label: string; val: string }[] }) {
   return (
     <div className="rounded-lg border border-border bg-card p-5 mb-4 last:mb-0 print:break-inside-avoid">
       <div className="text-base font-semibold mb-2">{heading}</div>
@@ -659,10 +518,7 @@ function EngageBlock({
       {sponsors && (
         <div className="mt-3 grid sm:grid-cols-2 gap-1.5 text-xs">
           {sponsors.map((s) => (
-            <div
-              key={s.label}
-              className="flex items-baseline justify-between border-b border-border py-1.5"
-            >
+            <div key={s.label} className="flex items-baseline justify-between border-b border-border py-1.5">
               <span>{s.label}</span>
               <span className="font-semibold">{s.val}</span>
             </div>
@@ -676,10 +532,7 @@ function EngageBlock({
 function PrintButton() {
   return (
     <form action="javascript:window.print()">
-      <button
-        type="submit"
-        className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:bg-accent/90"
-      >
+      <button type="submit" className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:bg-accent/90">
         <Printer className="h-4 w-4" />
         Print / Save as PDF
       </button>
