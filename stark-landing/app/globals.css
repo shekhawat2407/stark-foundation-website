@@ -81,3 +81,43 @@
     letter-spacing: -0.01em;
   }
 }
+
+/* === Print stylesheet (mainly for /report-2026) === */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 10mm;
+  }
+  html, body {
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  /* Suppress sticky header offsets */
+  header.sticky {
+    position: static !important;
+  }
+  /* Make sure aspect-ratio image containers don't collapse and images print */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  /* Avoid breaking individual cards/sections across pages */
+  section, article, .rounded-lg, dl, ol > li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  /* Tighter type for print */
+  body {
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+  h1 { font-size: 28pt; }
+  h2 { font-size: 18pt; }
+  h3 { font-size: 13pt; }
+}

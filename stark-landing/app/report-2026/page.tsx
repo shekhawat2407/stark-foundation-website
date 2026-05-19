@@ -100,6 +100,7 @@ export default function Report2026() {
                 src="/images/gallery/team-picture.jpg"
                 alt="STARK Foundation team"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
@@ -301,6 +302,7 @@ export default function Report2026() {
                 src="/images/gallery/frocks-childrens-day-2021.jpg"
                 alt="Children's Day 2021 frocks handed to slum kids"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
@@ -396,7 +398,7 @@ function ProgramCard({ n, title, tag, body, extras, photo, alt }: { n: string; t
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden grid md:grid-cols-[200px_1fr] print:break-inside-avoid">
       <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[160px] bg-muted">
-        <Image src={photo} alt={alt} fill sizes="(max-width: 768px) 100vw, 200px" className="object-cover" />
+        <Image src={photo} alt={alt} fill priority sizes="(max-width: 768px) 100vw, 200px" className="object-cover" />
       </div>
       <div className="p-5 md:p-6">
         <div className="flex items-baseline justify-between mb-2">
@@ -419,7 +421,7 @@ function CentreCard({ tag, name, location, opened, trained, tracks, note, photo,
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden flex flex-col print:break-inside-avoid">
       <div className="relative aspect-[4/3] bg-muted">
-        <Image src={photo} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+        <Image src={photo} alt={alt} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       </div>
       <div className="p-5">
         <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-1">{tag}</div>
@@ -461,7 +463,7 @@ function CaseStudy({ n, title, when, spend, beneficiaries, body, photo, alt }: {
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden print:break-inside-avoid">
       <div className="relative aspect-[16/9] bg-muted">
-        <Image src={photo} alt={alt} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" />
+        <Image src={photo} alt={alt} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-cover" />
       </div>
       <div className="p-5 md:p-6">
         <div className="flex items-baseline justify-between mb-2 flex-wrap gap-2">
@@ -489,7 +491,7 @@ function ActiveCard({ photo, alt, title, detail }: { photo: string; alt: string;
   return (
     <div className="rounded-lg border border-border bg-card overflow-hidden flex flex-col print:break-inside-avoid">
       <div className="relative aspect-[4/3] bg-muted">
-        <Image src={photo} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+        <Image src={photo} alt={alt} fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       </div>
       <div className="p-5">
         <div className="text-base font-semibold mb-1">{title}</div>
