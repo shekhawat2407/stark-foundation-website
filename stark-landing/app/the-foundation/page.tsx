@@ -37,6 +37,14 @@ const PAGES = [
 export default function TheFoundation() {
   return (
     <div className="bg-white">
+      {/* Override the site-wide @page rules: this report owns its own page
+          margins via the <Page> component, so the PDF needs 0 page margin. */}
+      <style>{`
+        @media print {
+          @page { size: A4 portrait; margin: 0 !important; }
+          html, body { margin: 0 !important; padding: 0 !important; }
+        }
+      `}</style>
       {/* Top control bar — not printed */}
       <div className="print:hidden border-b border-border bg-surface">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
@@ -202,103 +210,78 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="03" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Overview</SectionEyebrow>
-          <SectionTitle>
-            SKILL DEVELOPMENT
-            <br />
-            CENTER
-          </SectionTitle>
+          <SectionTitle>SKILL DEVELOPMENT CENTER</SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-10 mt-10 items-start">
-            <div className="space-y-4 text-sm md:text-base leading-relaxed text-foreground/85">
+          <div className="grid md:grid-cols-[1fr_300px] gap-8 mt-8 items-start">
+            <div className="space-y-3 text-sm md:text-base leading-relaxed text-foreground/85">
               <p>
                 STARK Foundation&apos;s flagship program is the{' '}
                 <strong>vocational training centre</strong>, run in
-                collaboration with certified institutes and under the guidance
-                of highly reputed faculties in Bikaner.
+                collaboration with certified institutes and reputed faculties
+                in Bikaner. Courses are <strong>free of cost</strong> for
+                selected candidates, with placement support or in-house work
+                opportunities (Clothing &amp; Designing vertical).
               </p>
               <p>
-                The courses offered are <strong>free of cost</strong> for the
-                selected candidates, along with complete placement support or
-                in-house opportunities (for the &lsquo;Clothing &amp;
-                Designing&rsquo; vertical).
+                Admissions follow rigorous screening and background
+                verification, then an in-person interview. We operate two
+                centres: <strong>Bikaner</strong> (since June 2021) and{' '}
+                <strong>Pundalsar</strong> (since February 2025), covering
+                both urban and rural Rajasthan.
               </p>
-              <p>
-                The admission process involves rigorous screening and
-                background verification, followed by an in-person interview.
-                We have two operational centres: Bikaner (since June 2021) and
-                Pundalsar (since February 2025), covering both urban and rural
-                Rajasthan.
-              </p>
-              <p className="pt-2">
-                <strong>Skill partners:</strong> Tally Education · Singer India.
+              <p className="pt-1 text-foreground/70 text-sm">
+                Skill partners: Tally Education · Singer India.
               </p>
             </div>
 
-            <div className="space-y-3">
-              <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-muted">
-                <Image
-                  src="/images/gallery/vocational-training-class.jpg"
-                  alt="Students at the STARK Foundation Bikaner centre during a vocational training class"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
-                  <Image
-                    src="/images/gallery/batch-computer-bikaner.jpg"
-                    alt="Basic Computer batch at the Bikaner centre"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
-                  <Image
-                    src="/images/gallery/batch-stitching-bikaner.jpg"
-                    alt="Stitching batch at the Bikaner centre"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] rounded-md overflow-hidden bg-muted">
+              <Image
+                src="/images/gallery/vocational-training-class.jpg"
+                alt="Vocational training class at the Bikaner centre"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover"
+              />
             </div>
           </div>
 
-          <div className="mt-12 grid md:grid-cols-2 gap-8 text-sm md:text-base leading-relaxed">
-            <div>
+          <div className="mt-8 grid md:grid-cols-2 gap-6 text-sm leading-relaxed">
+            <div className="rounded-md border border-border bg-muted/30 p-5">
               <p className="font-semibold mb-2 text-foreground">
-                &lsquo;Computer & I.T.&rsquo; vertical
+                &lsquo;Computer &amp; I.T.&rsquo; vertical
               </p>
               <p className="text-foreground/80">
-                Each batch starts with a core competency (Typing or Tally),
-                then builds adjacent skill sets such as MS applications, web
-                browsing, and applying for jobs online. Soft-skill prep is
-                woven in: resume building, mock interviews, communication
-                fundamentals. Where vacancies open up in the local market, we
-                connect students directly.
+                Batches start with a core competency (Typing or Tally), then
+                build adjacent skills: MS apps, web browsing, applying for
+                jobs online. Soft-skill prep is woven in: resume building,
+                mock interviews, communication fundamentals. We connect
+                students to local vacancies directly.
               </p>
             </div>
-            <div>
+            <div className="rounded-md border border-border bg-muted/30 p-5">
               <p className="font-semibold mb-2 text-foreground">
-                &lsquo;Clothing & Designing&rsquo; vertical
+                &lsquo;Clothing &amp; Designing&rsquo; vertical
               </p>
               <p className="text-foreground/80">
-                Two-tier program: a 3-month certificate course and a 6-month
-                diploma. Beyond training, the centre operates as a small
-                workshop where students take work orders, mentor newer
-                students, and learn the dynamics of supplying to local
-                vendors and clothing brands.
+                Two-tier program: 3-month certificate and 6-month diploma.
+                The centre operates as a small workshop where students take
+                work orders, mentor newer students, and learn the dynamics
+                of supplying to local vendors and clothing brands.
               </p>
             </div>
           </div>
+
+          <StatBand
+            items={[
+              { v: '250+', l: 'Students trained' },
+              { v: '₹0', l: 'Fee from students' },
+              { v: '2', l: 'Operational centres' },
+              { v: '25+', l: 'Batches completed' },
+            ]}
+          />
         </div>
       </Page>
 
@@ -306,7 +289,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="04" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Children</SectionEyebrow>
           <SectionTitle>BACHPAN</SectionTitle>
 
@@ -345,7 +328,7 @@ export default function TheFoundation() {
             </div>
           </div>
 
-          <div className="mt-12 rounded-md border-l-4 border-accent bg-muted/40 p-6">
+          <div className="mt-10 rounded-md border-l-4 border-accent bg-muted/40 p-6">
             <p className="text-xs uppercase tracking-wider font-semibold text-accent mb-1.5">
               On record
             </p>
@@ -357,6 +340,15 @@ export default function TheFoundation() {
               Gharsisar area schools.
             </p>
           </div>
+
+          <StatBand
+            items={[
+              { v: '150', l: 'Kids, Children’s Day 2021' },
+              { v: '4', l: 'Schools, Adhigam 2023' },
+              { v: '5', l: 'Slum areas covered' },
+              { v: '2026', l: 'Adhigam edition 2' },
+            ]}
+          />
         </div>
       </Page>
 
@@ -364,7 +356,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="05" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Colleges</SectionEyebrow>
           <SectionTitle>
             HIGHER-ED
@@ -372,29 +364,38 @@ export default function TheFoundation() {
             PARTNERSHIPS
           </SectionTitle>
 
-          <p className="mt-8 max-w-3xl text-sm md:text-base text-foreground/85 leading-relaxed">
+          <p className="mt-6 max-w-3xl text-sm md:text-base text-foreground/85 leading-relaxed">
             We partner with colleges to revive under-used facilities and run
             free, future-facing courses. Two case studies show the model:
           </p>
 
-          <div className="mt-8 space-y-6">
-            <CaseBlock
+          <div className="mt-8 grid md:grid-cols-2 gap-5">
+            <CompactCase
               tag="Concluded"
               title="Maharani Sudarshan College for Women"
-              when="February 2024 – February 2026 · 2-year MOU"
-              body="In February 2024 we partnered with the college administration to revive their computer lab, dormant for 10 years. We transferred computers from our Bikaner centre and launched Computer-based Skill Development and Stitching & Fashion Designing programs. ~210 students trained across multiple batches at zero fees to students."
+              when="Feb 2024 – Feb 2026 · 2-year MOU"
+              body="Revived a 10-year-dormant computer lab. Transferred computers from our Bikaner centre and launched free Computer-based Skill Development and Stitching & Fashion Designing programs. ~210 students trained across multiple batches."
               photo="/images/gallery/maharani-mou-2024.jpg"
               alt="Maharani Sudarshan College MOU"
             />
-            <CaseBlock
+            <CompactCase
               tag="Active"
               title="Engineering College Bikaner: AI Workshops"
               when="Since May 2026 · expanding"
-              body="A new partnership with the EICE Department under HOD Ms. Pooja Bhardwaj. Phase 1 introductory session covered AI in industry, the shift from chatbots to autonomous agents, hallucination risks, and tools like Claude Code and Copilot. VLSI segment covered hardware design tools and how AI is starting to influence hardware design. A hands-on Phase 2 project in collaboration with the Foundation has been announced."
+              body="Partnership with the EICE Department under HOD Ms. Pooja Bhardwaj. Phase 1: AI in industry, agents vs chatbots, hallucination risks, Claude Code & Copilot, plus VLSI hardware design. Phase 2 hands-on project announced."
               photo="/images/gallery/ai-workshop-ecb-2026.jpg"
               alt="AI Workshop at ECB"
             />
           </div>
+
+          <StatBand
+            items={[
+              { v: '2', l: 'College partnerships' },
+              { v: '~210', l: 'Students, Maharani' },
+              { v: '1', l: 'Dormant lab revived' },
+              { v: '2026', l: 'ECB launch' },
+            ]}
+          />
         </div>
       </Page>
 
@@ -402,7 +403,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="06" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · CSR</SectionEyebrow>
           <SectionTitle>C.S.R. PROJECTS</SectionTitle>
 
@@ -446,6 +447,15 @@ export default function TheFoundation() {
               />
             </div>
           </div>
+
+          <StatBand
+            items={[
+              { v: '1', l: 'CSR pilot' },
+              { v: '5+', l: 'Follow-on projects' },
+              { v: '3', l: 'Core themes' },
+              { v: 'Bk.E.S.L', l: 'Anchor partner' },
+            ]}
+          />
         </div>
       </Page>
 
@@ -453,7 +463,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="07" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · CSR Numbers</SectionEyebrow>
           <SectionTitle>C.S.R. PROJECTS</SectionTitle>
 
@@ -506,7 +516,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="08" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Emergency</SectionEyebrow>
           <SectionTitle>DISASTER RELIEF</SectionTitle>
 
@@ -544,6 +554,15 @@ export default function TheFoundation() {
               </p>
             </div>
           </div>
+
+          <StatBand
+            items={[
+              { v: '1,500', l: 'Families served' },
+              { v: '6,000+', l: 'Meal boxes' },
+              { v: '4,000+', l: 'Ration kits' },
+              { v: '₹6.58L', l: 'Spend, 6 weeks' },
+            ]}
+          />
         </div>
       </Page>
 
@@ -551,7 +570,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="09" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Drive</SectionEyebrow>
           <SectionTitle>DIGITAL PAHEL</SectionTitle>
 
@@ -592,6 +611,33 @@ export default function TheFoundation() {
               </ul>
             </div>
           </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-4">
+            <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-muted">
+              <Image
+                src="/images/gallery/maharani-computer.jpg"
+                alt="Refurbished devices in use at Maharani College computer lab"
+                fill
+                priority
+                sizes="(max-width: 768px) 50vw, 400px"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-muted">
+              <Image
+                src="/images/gallery/batch-computer-bikaner.jpg"
+                alt="Computer batch at the Bikaner centre using deployed hardware"
+                fill
+                priority
+                sizes="(max-width: 768px) 50vw, 400px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <p className="mt-3 text-xs text-muted-foreground italic">
+            Where donated devices end up: at our centre and partner colleges.
+          </p>
         </div>
       </Page>
 
@@ -599,7 +645,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="10" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Looking Ahead</SectionEyebrow>
           <SectionTitle>TARGETS AHEAD</SectionTitle>
 
@@ -651,7 +697,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="11" />
-        <div className="px-8 md:px-16 py-12 md:py-16">
+        <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Governance</SectionEyebrow>
           <SectionTitle>
             COMPLIANCE &amp;
@@ -700,6 +746,15 @@ export default function TheFoundation() {
               </p>
             </div>
           </div>
+
+          <StatBand
+            items={[
+              { v: '100%', l: 'Online donations' },
+              { v: '98%', l: 'Digital expenses' },
+              { v: 'Annual', l: 'External audit + ITR' },
+              { v: '12A + 80G', l: 'Tax exemption approved' },
+            ]}
+          />
         </div>
       </Page>
 
@@ -914,6 +969,66 @@ function CaseBlock({
         <div className="text-xs text-muted-foreground mt-1 mb-3">{when}</div>
         <p className="text-sm text-foreground/85 leading-relaxed">{body}</p>
       </div>
+    </div>
+  )
+}
+
+function CompactCase({
+  tag,
+  title,
+  when,
+  body,
+  photo,
+  alt,
+}: {
+  tag: string
+  title: string
+  when: string
+  body: string
+  photo: string
+  alt: string
+}) {
+  return (
+    <div className="rounded-md border border-border overflow-hidden bg-card flex flex-col">
+      <div className="relative aspect-[16/9] bg-muted">
+        <Image
+          src={photo}
+          alt={alt}
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="p-4 md:p-5">
+        <div className="inline-flex text-[10px] uppercase tracking-wider font-semibold bg-accent/15 text-accent px-2 py-0.5 rounded-full mb-2">
+          {tag}
+        </div>
+        <div className="text-base md:text-lg font-semibold leading-tight">
+          {title}
+        </div>
+        <div className="text-xs text-muted-foreground mt-1 mb-2">{when}</div>
+        <p className="text-xs md:text-sm text-foreground/85 leading-relaxed">
+          {body}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function StatBand({ items }: { items: { v: string; l: string }[] }) {
+  return (
+    <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 border-y-2 border-foreground/85 py-5 print:break-inside-avoid">
+      {items.map((it) => (
+        <div key={it.l}>
+          <div className="text-2xl md:text-3xl font-semibold text-primary leading-tight tabular-nums">
+            {it.v}
+          </div>
+          <div className="text-xs text-muted-foreground mt-1 leading-snug">
+            {it.l}
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

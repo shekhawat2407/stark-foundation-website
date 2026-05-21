@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'luc
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-surface print:hidden">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16 grid gap-8 md:grid-cols-3">
         <div>
           <div className="text-sm font-semibold mb-3">Programs</div>
