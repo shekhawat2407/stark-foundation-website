@@ -61,7 +61,7 @@ const steps = [
   {
     icon: GraduationCap,
     title: '3 · A student learns on it',
-    desc: 'Every device goes directly into a learner’s hands. At our centre, at Maharani College, at a govt school, or at the Pundalsar centre.',
+    desc: 'Every device goes directly into a learner’s hands. At our centre, at a college partner, at a govt school, or at the Pundalsar centre.',
   },
 ]
 
@@ -115,8 +115,7 @@ export default function DigitalDaan() {
           Working, partly working, or repairable. We take it all.
         </h2>
         <p className="text-base text-muted-foreground max-w-3xl mb-10">
-          If it can run a typing lesson, a Tally tutorial, a stitching class or
-          a science workshop. We’ll find a home for it.
+          If it can run a typing lesson, a Tally tutorial, a stitching class or a science workshop, we’ll find a home for it.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {accepted.map(({ icon: Icon, label, note }) => (
@@ -173,7 +172,7 @@ export default function DigitalDaan() {
             {[
               {
                 q: 'Where do I drop off the items?',
-                a: 'Our centre: Behind Sardar Hall, Mehron Ka Mohalla, Bikaner. For larger donations (multiple devices or sewing machines), we can pick up anywhere in Bikaner city.',
+                a: 'Our centre: Behind Sardar Hall, Mehron Ka Mohalla, Bikaner. For larger donations (multiple devices or sewing machines), we can pick up anywhere in Bikaner city, or schedule something outside Bikaner.',
               },
               {
                 q: 'My laptop is 8 years old / has issues. Worth donating?',
