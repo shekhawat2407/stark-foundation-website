@@ -35,7 +35,16 @@ jobs:
 
       - run: npm ci
 
-      - name: Build (static export)
+      - name: Cache Puppeteer browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('stark-landing/package-lock.json') }}
+
+      - name: Install Puppeteer browser (if not cached)
+        run: npx puppeteer browsers install chrome
+
+      - name: Build (static export + PDF generation)
         # NEXT_PUBLIC_BASE_PATH intentionally unset — serving from apex custom domain.
         run: npm run build
 

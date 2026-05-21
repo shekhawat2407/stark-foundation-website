@@ -2,6 +2,20 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PrintButton } from '../report-2026/PrintButton'
+import { Download } from 'lucide-react'
+
+function DownloadPdfButton() {
+  return (
+    <a
+      href="/stark-foundation-overview.pdf"
+      download="STARK-Foundation-Overview.pdf"
+      className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:bg-accent/90"
+    >
+      <Download className="h-4 w-4" />
+      Download PDF
+    </a>
+  )
+}
 
 export const metadata: Metadata = {
   title: 'STARK Foundation — An Overview',
@@ -27,9 +41,12 @@ export default function TheFoundation() {
       <div className="print:hidden border-b border-border bg-surface">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
           <div className="text-xs text-muted-foreground">
-            STARK Foundation — Overview (printable). Save to PDF for stakeholder share.
+            STARK Foundation — Overview. Pre-rendered PDF below; print fallback also available.
           </div>
-          <PrintButton />
+          <div className="flex items-center gap-2">
+            <DownloadPdfButton />
+            <PrintButton />
+          </div>
         </div>
       </div>
 
@@ -748,7 +765,10 @@ export default function TheFoundation() {
 
       <div className="print:hidden bg-surface border-t border-border">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-6 flex flex-wrap gap-3 justify-between items-center">
-          <PrintButton />
+          <div className="flex items-center gap-2">
+            <DownloadPdfButton />
+            <PrintButton />
+          </div>
           <Link
             href="/"
             className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium hover:bg-muted"
