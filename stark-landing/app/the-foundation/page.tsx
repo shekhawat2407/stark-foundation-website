@@ -30,8 +30,7 @@ const PAGES = [
   { n: '04', title: 'C.S.R. Projects' },
   { n: '05', title: 'Disaster Relief' },
   { n: '06', title: 'Digital Pahel' },
-  { n: '07', title: 'Targets Ahead' },
-  { n: '08', title: 'Compliance & Transparency' },
+  { n: '07', title: 'Compliance & Transparency' },
 ]
 
 export default function TheFoundation() {
@@ -60,8 +59,8 @@ export default function TheFoundation() {
 
       {/* ============== COVER ============== */}
       <Page fixed>
-        {/* Photo fills the top 55% of the page */}
-        <div className="absolute inset-x-0 top-0 h-[55%] overflow-hidden">
+        {/* Background photo, full bleed, heavily tinted */}
+        <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/images/gallery/adhigam-2023.jpg"
             alt="STARK Foundation gathering"
@@ -70,47 +69,56 @@ export default function TheFoundation() {
             sizes="(max-width: 1024px) 100vw, 1024px"
             className="object-cover"
           />
-          {/* Soft bottom gradient so text sits comfortably */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/10" />
+          {/* Strong blue tint over the photo (multiply blend) so it reads as
+              a backdrop, not the subject. Matches the 2022 cover treatment. */}
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: '#1e3a8a', mixBlendMode: 'multiply', opacity: 0.78 }}
+          />
+          {/* Soft directional gradient for extra depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-transparent to-primary/55" />
         </div>
 
-        {/* Diagonal corner accents */}
-        <CoverAccents />
+        {/* Big diagonal chevrons — top-left and bottom-right */}
+        <BigCoverChevrons />
 
-        {/* Title overlay on photo */}
-        <div className="absolute inset-x-0 top-0 h-[55%] flex flex-col justify-end px-10 md:px-16 pb-8 md:pb-10 text-white">
-          <div className="text-[11px] md:text-sm tracking-[0.35em] opacity-90 mb-3">
+        {/* Title block — upper left over the photo */}
+        <div className="absolute top-24 md:top-32 left-10 md:left-16 max-w-md text-white z-20">
+          <div className="text-[11px] md:text-sm tracking-[0.4em] opacity-90 mb-3">
             S.T.A.R.K.&nbsp;FOUNDATION
           </div>
           <div className="h-1 w-20 bg-accent mb-5" />
           <h1 className="text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight">
-            The Foundation
+            The
+            <br />
+            Foundation
           </h1>
-        </div>
-
-        {/* Bottom 45% — white panel with description + contact */}
-        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-white px-10 md:px-16 py-10 md:py-14 flex flex-col justify-between">
-          <p className="text-base md:text-xl text-foreground/80 max-w-xl leading-relaxed">
+          <p className="text-sm md:text-base opacity-90 mt-5 max-w-sm leading-relaxed">
             An overview of who we are, what we do, and where we work.
           </p>
+        </div>
 
-          <div className="flex items-center gap-5">
-            <Image
-              src="/images/ebeb61_602706572e3e4b1f9343ca4d617325fb_mv2.png"
-              alt="STARK Foundation logo"
-              width={64}
-              height={64}
-              priority
-              className="h-14 w-14 md:h-16 md:w-16"
-            />
-            <div className="text-xs md:text-sm text-foreground/75 space-y-1">
-              <div className="font-semibold text-foreground text-sm md:text-base">
-                STARK Foundation
-              </div>
-              <div>+91-7014237837</div>
-              <div>hello@starkfoundation.in</div>
-              <div>www.starkfoundation.in</div>
+        {/* Bottom-left identity block — logo, name, contact */}
+        <div className="absolute bottom-10 md:bottom-14 left-10 md:left-16 text-white z-20">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="bg-white rounded-md p-1.5">
+              <Image
+                src="/images/ebeb61_602706572e3e4b1f9343ca4d617325fb_mv2.png"
+                alt="STARK Foundation logo"
+                width={44}
+                height={44}
+                priority
+                className="h-10 w-10 md:h-11 md:w-11 object-contain"
+              />
             </div>
+            <div className="text-base md:text-lg font-semibold">
+              STARK Foundation
+            </div>
+          </div>
+          <div className="text-xs md:text-sm space-y-0.5 opacity-90 pl-1">
+            <div>+91-7014237837</div>
+            <div>hello@starkfoundation.in</div>
+            <div>www.starkfoundation.in</div>
           </div>
         </div>
       </Page>
@@ -274,18 +282,10 @@ export default function TheFoundation() {
             </div>
           </div>
 
-          <StatBand
-            items={[
-              { v: '250+', l: 'Students trained' },
-              { v: '₹0', l: 'Fee from students' },
-              { v: '2', l: 'Operational centres' },
-              { v: '25+', l: 'Batches completed' },
-            ]}
-          />
         </div>
       </Page>
 
-      {/* ============== 02 — BACHPAN ============== */}
+      {/* ============== 02 — BACHPAN (intro) ============== */}
       <Page>
         <CornerAccents />
         <PageFooter n="04" />
@@ -293,7 +293,7 @@ export default function TheFoundation() {
           <SectionEyebrow>The Foundation · Children</SectionEyebrow>
           <SectionTitle>BACHPAN</SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-10 mt-10 items-start">
+          <div className="grid md:grid-cols-2 gap-10 mt-8 items-start">
             <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
               <Image
                 src="/images/gallery/hero-bachpan.jpg"
@@ -304,58 +304,124 @@ export default function TheFoundation() {
                 className="object-cover"
               />
             </div>
-            <div className="space-y-4 text-sm md:text-base leading-relaxed text-foreground/85">
+            <div className="space-y-3 text-sm md:text-base leading-relaxed text-foreground/85">
               <p>
                 <strong>Bachpan</strong> is our work with children in
                 government schools and slum areas around Bikaner. The format
                 is intentionally flexible: summer learning camps in govt
-                schools, weekend workshops, study-kit drives, distribution
-                drives, and Children&apos;s Day events.
+                schools, weekend workshops, study-kit drives, and
+                Children&apos;s Day events.
               </p>
               <p>
-                The flagship initiative under this banner is{' '}
-                <strong>Adhigam</strong>, a summer learning camp launched in
-                2023 across 4 government schools, now running an expanded
-                second edition.
+                The flagship initiative is <strong>Adhigam</strong>, a summer
+                learning camp launched in 2023 across 4 government schools,
+                now running an expanded second edition.
               </p>
               <p>
-                The thesis: kids in govt schools often don&apos;t need a
+                The thesis: kids in govt schools don&apos;t need a
                 replacement system; they need an extra month of structured
                 exposure with people who&apos;ve done what they want to do.
-                Adhigam pairs school timetables with mentorship and creative
-                workshops.
               </p>
             </div>
           </div>
 
-          <div className="mt-10 rounded-md border-l-4 border-accent bg-muted/40 p-6">
-            <p className="text-xs uppercase tracking-wider font-semibold text-accent mb-1.5">
-              On record
-            </p>
-            <p className="text-sm md:text-base text-foreground/85 leading-relaxed">
-              Children&apos;s Day 2021: 150 kids from 5 slum areas, sports
-              events, education kits, frocks stitched by women in our
-              stitching program. Distribution drives at MP Colony Govt School
-              (books and learning material). Stationery distribution at
-              Gharsisar area schools.
-            </p>
+          <div className="mt-10">
+            <div className="text-xs uppercase tracking-[0.2em] text-foreground/60 mb-4 border-b border-foreground/15 pb-2">
+              Activities on record
+            </div>
+            <div className="space-y-3">
+              <ActivityRow
+                year="2021"
+                date="14 Nov"
+                title="Children's Day Activities"
+                venue="5 slum areas, Bikaner"
+                ben="150 kids"
+                spend="₹78,000"
+                desc="Sports and cultural events. Each child received a kit (shoes, jersey, bag, study material, packaged food). Frocks stitched by women in our stitching program. Partners: Robin Hood Army, YAI, Vrikshit Foundation."
+              />
+              <ActivityRow
+                year="2022"
+                date="2 Mar"
+                title="Enhanced Learning Environment: Pemasar"
+                venue="Govt Sr Sec School, Pemasar"
+                ben="700 students"
+                spend="₹1.0L"
+                desc="Electricity fittings and sports equipment. Funded via BkESL."
+              />
+            </div>
           </div>
+        </div>
+      </Page>
 
-          <StatBand
-            items={[
-              { v: '150', l: 'Kids, Children’s Day 2021' },
-              { v: '4', l: 'Schools, Adhigam 2023' },
-              { v: '5', l: 'Slum areas covered' },
-              { v: '2026', l: 'Adhigam edition 2' },
-            ]}
-          />
+      {/* ============== 02b — BACHPAN (continued) ============== */}
+      <Page>
+        <CornerAccents />
+        <PageFooter n="05" />
+        <div className="px-8 md:px-16 py-10 md:py-12">
+          <SectionEyebrow>The Foundation · Children · Activities</SectionEyebrow>
+          <SectionTitle>BACHPAN, CONTINUED</SectionTitle>
+
+          <div className="mt-8 space-y-3">
+            <ActivityRow
+              year="2022"
+              date="28 Mar"
+              title="Enhanced Learning Environment: Udairamsar"
+              venue="Govt Girls + Sr Sec Schools, Udairamsar"
+              ben="968 students"
+              spend="₹4.23L"
+              desc="Water coolers + RO systems, 100 desks/furniture sets, two computers, storage almirahs. Benefits 500 girls + 468 students. Funded via BkESL."
+            />
+            <ActivityRow
+              year="2022"
+              date="20 Sep"
+              title="Study Kit Distribution: Bhagwanpur"
+              venue="Govt Girls Sr Sec School, Bhagwanpur"
+              ben="200 students"
+              spend="₹40,000"
+              desc="Notebooks, pens, pencils, erasers and basic supplies — easing the cost burden on families and equipping students for the term."
+            />
+            <ActivityRow
+              year="2023"
+              date="18 May – 2 Jun"
+              title="Adhigam: Computer Learning Camp (1st edition)"
+              venue="NGO Office · 4 govt schools"
+              ben="90 students"
+              spend="₹52,000"
+              desc="Flagship 2-week summer camp on digital education, science workshops and guest speakers. Schools: Maharani Govt Girls · Ganga Bal · SMJT · Haldiram Sursagar."
+              highlight
+            />
+            <ActivityRow
+              year="2024"
+              date="14 Feb"
+              title="Study Kit Distribution: Pemasar"
+              venue="Govt Higher Sec School, Pemasar"
+              ben="140 students"
+              spend="₹46,290"
+              desc="Study kits at the Pemasar school we had earlier supported with infrastructure."
+            />
+            <ActivityRow
+              year="2025"
+              date="Jul"
+              title="MP Colony Distribution Drive"
+              venue="MP Colony Govt School, Bikaner"
+              desc="Books and learning material distributed as part of ongoing engagement with the school."
+            />
+            <ActivityRow
+              year="2026"
+              date="May – Jun"
+              title="Adhigam 2nd edition"
+              venue="Expanded school list, Bikaner"
+              desc="Second edition of the Adhigam summer learning camp, with a broader school list than 2023. Schools, dates and reach being finalised."
+              upcoming
+            />
+          </div>
         </div>
       </Page>
 
       {/* ============== 03 — HIGHER-ED PARTNERSHIPS ============== */}
       <Page>
         <CornerAccents />
-        <PageFooter n="05" />
+        <PageFooter n="06" />
         <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Colleges</SectionEyebrow>
           <SectionTitle>
@@ -388,21 +454,13 @@ export default function TheFoundation() {
             />
           </div>
 
-          <StatBand
-            items={[
-              { v: '2', l: 'College partnerships' },
-              { v: '~210', l: 'Students, Maharani' },
-              { v: '1', l: 'Dormant lab revived' },
-              { v: '2026', l: 'ECB launch' },
-            ]}
-          />
         </div>
       </Page>
 
       {/* ============== 04 — CSR PROJECTS (text) ============== */}
       <Page>
         <CornerAccents />
-        <PageFooter n="06" />
+        <PageFooter n="07" />
         <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · CSR</SectionEyebrow>
           <SectionTitle>C.S.R. PROJECTS</SectionTitle>
@@ -448,21 +506,13 @@ export default function TheFoundation() {
             </div>
           </div>
 
-          <StatBand
-            items={[
-              { v: '1', l: 'CSR pilot' },
-              { v: '5+', l: 'Follow-on projects' },
-              { v: '3', l: 'Core themes' },
-              { v: 'Bk.E.S.L', l: 'Anchor partner' },
-            ]}
-          />
         </div>
       </Page>
 
       {/* ============== 04b — CSR NUMBERS ============== */}
       <Page>
         <CornerAccents />
-        <PageFooter n="07" />
+        <PageFooter n="08" />
         <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · CSR Numbers</SectionEyebrow>
           <SectionTitle>C.S.R. PROJECTS</SectionTitle>
@@ -515,7 +565,7 @@ export default function TheFoundation() {
       {/* ============== 05 — DISASTER RELIEF ============== */}
       <Page>
         <CornerAccents />
-        <PageFooter n="08" />
+        <PageFooter n="09" />
         <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Emergency</SectionEyebrow>
           <SectionTitle>DISASTER RELIEF</SectionTitle>
@@ -555,21 +605,13 @@ export default function TheFoundation() {
             </div>
           </div>
 
-          <StatBand
-            items={[
-              { v: '1,500', l: 'Families served' },
-              { v: '6,000+', l: 'Meal boxes' },
-              { v: '4,000+', l: 'Ration kits' },
-              { v: '₹6.58L', l: 'Spend, 6 weeks' },
-            ]}
-          />
         </div>
       </Page>
 
       {/* ============== 06 — DIGITAL PAHEL ============== */}
       <Page>
         <CornerAccents />
-        <PageFooter n="09" />
+        <PageFooter n="10" />
         <div className="px-8 md:px-16 py-10 md:py-12">
           <SectionEyebrow>The Foundation · Drive</SectionEyebrow>
           <SectionTitle>DIGITAL PAHEL</SectionTitle>
@@ -641,59 +683,7 @@ export default function TheFoundation() {
         </div>
       </Page>
 
-      {/* ============== 07 — TARGETS AHEAD ============== */}
-      <Page>
-        <CornerAccents />
-        <PageFooter n="10" />
-        <div className="px-8 md:px-16 py-10 md:py-12">
-          <SectionEyebrow>The Foundation · Looking Ahead</SectionEyebrow>
-          <SectionTitle>TARGETS AHEAD</SectionTitle>
-
-          <div className="mt-10 grid md:grid-cols-2 gap-10 text-sm md:text-base leading-relaxed text-foreground/85">
-            <div className="space-y-4">
-              <p>
-                <strong>Coverage in rural Rajasthan.</strong> Increase the
-                reach of our skill development programs through mobile setups
-                in remote tehsils around Bikaner and Dungargarh. Strike a
-                tighter balance between training supply and market demand.
-              </p>
-              <p>
-                <strong>Higher-ed partnerships at scale.</strong> Build on
-                the Maharani and ECB engagements with one new college tie-up
-                per academic year, focused on reviving under-used computer
-                labs.
-              </p>
-              <p>
-                <strong>Niche product training.</strong> Train students in
-                niche product lines (uniforms, lifestyle accessories), set up
-                Self-Help Groups, and guide them to sell on e-commerce
-                platforms.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <p>
-                <strong>Project-based learning.</strong> Integrate soft-skill
-                training more deeply into the &lsquo;Computer & I.T.&rsquo;
-                vertical. Add project-based learning (in-house or external)
-                for technical growth.
-              </p>
-              <p>
-                <strong>Funding mix.</strong> Gradually shift from individual
-                contributors to government-sponsored schemes and more CSR
-                partners. The infrastructure work with Bk.E.S.L. is the
-                template.
-              </p>
-              <p>
-                <strong>Off-school coaching pilot.</strong> Launch
-                supplementary education through mentorship and off-school
-                coaching at selected govt schools.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Page>
-
-      {/* ============== 08 — COMPLIANCE & TRANSPARENCY ============== */}
+      {/* ============== 07 — COMPLIANCE & TRANSPARENCY ============== */}
       <Page>
         <CornerAccents />
         <PageFooter n="11" />
@@ -747,14 +737,6 @@ export default function TheFoundation() {
             </div>
           </div>
 
-          <StatBand
-            items={[
-              { v: '100%', l: 'Online donations' },
-              { v: '98%', l: 'Digital expenses' },
-              { v: 'Annual', l: 'External audit + ITR' },
-              { v: '12A + 80G', l: 'Tax exemption approved' },
-            ]}
-          />
         </div>
       </Page>
 
@@ -882,6 +864,36 @@ function CornerAccents() {
   )
 }
 
+function BigCoverChevrons() {
+  // Larger overlapping diagonal chevrons inspired by the 2022 annual report
+  // cover. Top-left stack tilts towards the title; bottom-right anchors the
+  // opposite corner. Strong colours so they read over the tinted photo.
+  return (
+    <>
+      <svg
+        aria-hidden
+        className="absolute top-0 left-0 w-[42%] h-[42%] z-10 pointer-events-none"
+        viewBox="0 0 320 320"
+        preserveAspectRatio="xMinYMin meet"
+      >
+        <polygon points="0,0 120,0 36,90 0,90" fill="#ea580c" />
+        <polygon points="135,0 250,0 165,135 50,135" fill="#1e3a8a" />
+        <polygon points="60,160 165,160 115,260 10,260" fill="#ea580c" opacity="0.9" />
+      </svg>
+      <svg
+        aria-hidden
+        className="absolute bottom-0 right-0 w-[42%] h-[42%] z-10 pointer-events-none"
+        viewBox="0 0 320 320"
+        preserveAspectRatio="xMaxYMax meet"
+      >
+        <polygon points="320,320 200,320 284,230 320,230" fill="#ea580c" />
+        <polygon points="185,320 70,320 155,185 270,185" fill="#1e3a8a" />
+        <polygon points="260,160 155,160 205,60 310,60" fill="#ea580c" opacity="0.9" />
+      </svg>
+    </>
+  )
+}
+
 function CoverAccents() {
   // Larger accents for the cover, layered above the photo.
   return (
@@ -968,6 +980,67 @@ function CaseBlock({
         <div className="text-lg md:text-xl font-semibold">{title}</div>
         <div className="text-xs text-muted-foreground mt-1 mb-3">{when}</div>
         <p className="text-sm text-foreground/85 leading-relaxed">{body}</p>
+      </div>
+    </div>
+  )
+}
+
+function ActivityRow({
+  year,
+  date,
+  title,
+  venue,
+  ben,
+  spend,
+  desc,
+  highlight,
+  upcoming,
+}: {
+  year: string
+  date: string
+  title: string
+  venue: string
+  ben?: string
+  spend?: string
+  desc: string
+  highlight?: boolean
+  upcoming?: boolean
+}) {
+  return (
+    <div
+      className={`grid grid-cols-[60px_1fr] gap-4 md:gap-6 border-l-4 pl-4 md:pl-5 py-3 ${
+        highlight
+          ? 'border-accent bg-accent/5'
+          : upcoming
+            ? 'border-foreground/30 bg-muted/30'
+            : 'border-primary/40'
+      } rounded-r-md print:break-inside-avoid`}
+    >
+      <div className="text-base md:text-lg font-semibold text-primary leading-tight tabular-nums">
+        {year}
+        <div className="text-[10px] text-muted-foreground font-normal mt-0.5">
+          {date}
+        </div>
+      </div>
+      <div>
+        <div className="flex items-baseline justify-between flex-wrap gap-x-3 gap-y-1">
+          <div className="text-sm md:text-base font-semibold leading-tight">
+            {title}
+            {upcoming && (
+              <span className="ml-2 text-[10px] uppercase tracking-wider font-semibold bg-foreground/10 text-foreground/70 px-1.5 py-0.5 rounded">
+                upcoming
+              </span>
+            )}
+          </div>
+          <div className="text-[11px] text-muted-foreground flex flex-wrap gap-x-3">
+            {ben && <span>{ben}</span>}
+            {spend && <span>· {spend}</span>}
+          </div>
+        </div>
+        <div className="text-[11px] text-muted-foreground mt-0.5">{venue}</div>
+        <p className="text-xs md:text-sm text-foreground/80 mt-2 leading-relaxed">
+          {desc}
+        </p>
       </div>
     </div>
   )
