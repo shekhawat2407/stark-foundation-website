@@ -219,8 +219,8 @@ export function DeviceDonationForm() {
 
       {status === 'sent' && (
         <p className="text-sm text-emerald-700">
-          Thank you. We&apos;ve received your pledge and will respond within
-          48 hours to confirm next steps.
+          Thank you. We&apos;ve received your pledge and will be in touch to
+          confirm next steps.
         </p>
       )}
       {status === 'error' && (

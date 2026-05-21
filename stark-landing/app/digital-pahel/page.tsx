@@ -211,11 +211,11 @@ export default function DigitalDaan() {
               Pledge a donation
             </div>
             <h2 className="text-2xl md:text-3xl font-semibold mb-3">
-              Tell us what you have. We&apos;ll take it from there.
+              Tell us what you&apos;d like to donate.
             </h2>
             <p className="text-sm text-muted-foreground max-w-md">
-              Fill in the form and submit. We respond within 48 hours to
-              confirm the fit and arrange pickup or drop-off.
+              Fill in the form and we&apos;ll be in touch to confirm the fit
+              and arrange pickup or drop-off.
             </p>
             <p className="text-sm text-muted-foreground max-w-md mt-3">
               Prefer to reach out directly? Email{' '}
