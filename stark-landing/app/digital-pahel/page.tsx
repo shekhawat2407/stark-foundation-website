@@ -51,7 +51,7 @@ const steps = [
   {
     icon: Truck,
     title: '1 · Reach out',
-    desc: 'Email or call us with what you want to donate. We confirm what we can use and arrange pickup or drop-off in Bikaner.',
+    desc: 'Email or call us with what you want to donate. We confirm what we can use, then arrange pickup or drop-off.',
   },
   {
     icon: Wrench,
