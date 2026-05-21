@@ -34,9 +34,9 @@ export default function TheFoundation() {
       </div>
 
       {/* ============== COVER ============== */}
-      <Page bg="cover">
-        <CoverAccents />
-        <div className="absolute inset-0 -z-10">
+      <Page fixed>
+        {/* Photo fills the top 55% of the page */}
+        <div className="absolute inset-x-0 top-0 h-[55%] overflow-hidden">
           <Image
             src="/images/gallery/adhigam-2023.jpg"
             alt="STARK Foundation gathering"
@@ -45,36 +45,46 @@ export default function TheFoundation() {
             sizes="(max-width: 1024px) 100vw, 1024px"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
+          {/* Soft bottom gradient so text sits comfortably */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/10" />
         </div>
-        <div className="relative z-10 h-full flex flex-col justify-between p-10 md:p-16 text-white">
-          <div>
-            <div className="text-sm md:text-base tracking-widest opacity-90 mb-2">
-              S.T.A.R.K.
-            </div>
-            <div className="h-1 w-24 bg-accent mb-6" />
-            <h1 className="text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tight">
-              The Foundation
-            </h1>
-            <p className="mt-6 max-w-md text-base md:text-lg opacity-95">
-              An overview of who we are, what we do, and where we work.
-            </p>
+
+        {/* Diagonal corner accents */}
+        <CoverAccents />
+
+        {/* Title overlay on photo */}
+        <div className="absolute inset-x-0 top-0 h-[55%] flex flex-col justify-end px-10 md:px-16 pb-8 md:pb-10 text-white">
+          <div className="text-[11px] md:text-sm tracking-[0.35em] opacity-90 mb-3">
+            S.T.A.R.K.&nbsp;FOUNDATION
           </div>
-          <div className="bg-white/95 text-foreground rounded-md p-4 md:p-5 max-w-md shadow-lg">
-            <div className="flex items-center gap-3 mb-2">
-              <Image
-                src="/images/ebeb61_602706572e3e4b1f9343ca4d617325fb_mv2.png"
-                alt="STARK Foundation logo"
-                width={36}
-                height={36}
-                priority
-              />
-              <div className="text-sm font-semibold">STARK Foundation</div>
-            </div>
-            <div className="text-xs text-muted-foreground space-y-0.5">
-              <div>📞 +91-7014237837</div>
-              <div>✉ hello@starkfoundation.in</div>
-              <div>🌐 www.starkfoundation.in</div>
+          <div className="h-1 w-20 bg-accent mb-5" />
+          <h1 className="text-5xl md:text-7xl font-semibold leading-[0.95] tracking-tight">
+            The Foundation
+          </h1>
+        </div>
+
+        {/* Bottom 45% — white panel with description + contact */}
+        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-white px-10 md:px-16 py-10 md:py-14 flex flex-col justify-between">
+          <p className="text-base md:text-xl text-foreground/80 max-w-xl leading-relaxed">
+            An overview of who we are, what we do, and where we work.
+          </p>
+
+          <div className="flex items-center gap-5">
+            <Image
+              src="/images/ebeb61_602706572e3e4b1f9343ca4d617325fb_mv2.png"
+              alt="STARK Foundation logo"
+              width={64}
+              height={64}
+              priority
+              className="h-14 w-14 md:h-16 md:w-16"
+            />
+            <div className="text-xs md:text-sm text-foreground/75 space-y-1">
+              <div className="font-semibold text-foreground text-sm md:text-base">
+                STARK Foundation
+              </div>
+              <div>+91-7014237837</div>
+              <div>hello@starkfoundation.in</div>
+              <div>www.starkfoundation.in</div>
             </div>
           </div>
         </div>
@@ -84,7 +94,7 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="01" />
-        <div className="px-6 md:px-16 py-12 md:py-16 max-w-3xl mx-auto">
+        <div className="px-8 md:px-16 py-14 md:py-20 max-w-3xl mx-auto">
           <p className="text-base md:text-lg leading-relaxed mb-5">
             <strong>Dear Stakeholder,</strong>
           </p>
@@ -126,7 +136,7 @@ export default function TheFoundation() {
               would have been possible without people like you, who showed up
               with moral, operational, or financial support, and stayed.
             </p>
-            <p className="mt-6">Thank you for everything. Upwards & onwards. 🙂</p>
+            <p className="mt-6">Thank you for everything. Upwards & onwards.</p>
             <p className="mt-8 leading-tight">
               Yours,
               <br />
@@ -144,25 +154,25 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="02" />
-        <div className="px-6 md:px-16 py-12 md:py-16 grid md:grid-cols-[280px_1fr] gap-10 md:gap-16 items-start">
-          <div className="relative">
-            <div className="flex items-stretch gap-2">
-              <div className="w-0.5 bg-foreground/80" />
-              <div className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.9] text-foreground/85 [writing-mode:vertical-rl] rotate-180">
-                Table of
-                <br />
-                Contents
-              </div>
-              <div className="w-0.5 bg-foreground/80" />
+        <div className="px-8 md:px-16 py-14 md:py-20">
+          <div className="border-b-2 border-foreground/80 pb-3 mb-10">
+            <div className="text-xs uppercase tracking-[0.3em] text-foreground/60 mb-2">
+              The Foundation
             </div>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Table of Contents
+            </h2>
           </div>
-          <ol className="space-y-7">
+          <ol className="grid sm:grid-cols-2 gap-x-10 gap-y-6 max-w-3xl">
             {PAGES.map((p) => (
-              <li key={p.n}>
-                <div className="text-3xl md:text-4xl font-semibold text-primary tracking-tight">
-                  {p.n}.
+              <li
+                key={p.n}
+                className="flex items-baseline gap-4 border-b border-border pb-3"
+              >
+                <div className="text-3xl md:text-4xl font-semibold text-primary tracking-tight tabular-nums">
+                  {p.n}
                 </div>
-                <div className="text-sm md:text-base text-foreground/80 mt-1">
+                <div className="text-sm md:text-base text-foreground/80">
                   {p.title}
                 </div>
               </li>
@@ -175,11 +185,15 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="03" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Overview</SectionEyebrow>
-          <SectionTitle>SKILL DEVELOPMENT<br />CENTER</SectionTitle>
+          <SectionTitle>
+            SKILL DEVELOPMENT
+            <br />
+            CENTER
+          </SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-8">
+          <div className="grid md:grid-cols-2 gap-10 mt-10 items-start">
             <div className="space-y-4 text-sm md:text-base leading-relaxed text-foreground/85">
               <p>
                 STARK Foundation&apos;s flagship program is the{' '}
@@ -190,23 +204,23 @@ export default function TheFoundation() {
               <p>
                 The courses offered are <strong>free of cost</strong> for the
                 selected candidates, along with complete placement support or
-                in-house opportunities (for the &lsquo;Clothing &
+                in-house opportunities (for the &lsquo;Clothing &amp;
                 Designing&rsquo; vertical).
               </p>
               <p>
-                The admission process involves rigorous screening &
+                The admission process involves rigorous screening and
                 background verification, followed by an in-person interview.
-                We have two operational centres — Bikaner (since June 2021)
-                and Pundalsar (since February 2025) — covering both urban and
-                rural Rajasthan.
+                We have two operational centres: Bikaner (since June 2021) and
+                Pundalsar (since February 2025), covering both urban and rural
+                Rajasthan.
               </p>
               <p className="pt-2">
-                <strong>Skill partners:</strong> Tally Education · Singer
-                India.
+                <strong>Skill partners:</strong> Tally Education · Singer India.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="relative aspect-[3/4] rounded-md overflow-hidden bg-muted col-span-2">
+
+            <div className="space-y-3">
+              <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-muted">
                 <Image
                   src="/images/gallery/vocational-training-class.jpg"
                   alt="Students at the STARK Foundation Bikaner centre during a vocational training class"
@@ -216,39 +230,41 @@ export default function TheFoundation() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative aspect-square rounded-md overflow-hidden bg-muted">
-                <Image
-                  src="/images/gallery/batch-computer-bikaner.jpg"
-                  alt="Basic Computer batch at the Bikaner centre"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative aspect-square rounded-md overflow-hidden bg-muted">
-                <Image
-                  src="/images/gallery/batch-stitching-bikaner.jpg"
-                  alt="Stitching batch at the Bikaner centre"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
-                />
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
+                  <Image
+                    src="/images/gallery/batch-computer-bikaner.jpg"
+                    alt="Basic Computer batch at the Bikaner centre"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
+                  <Image
+                    src="/images/gallery/batch-stitching-bikaner.jpg"
+                    alt="Stitching batch at the Bikaner centre"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-10 grid md:grid-cols-2 gap-6 text-sm md:text-base leading-relaxed">
+          <div className="mt-12 grid md:grid-cols-2 gap-8 text-sm md:text-base leading-relaxed">
             <div>
               <p className="font-semibold mb-2 text-foreground">
                 &lsquo;Computer & I.T.&rsquo; vertical
               </p>
               <p className="text-foreground/80">
                 Each batch starts with a core competency (Typing or Tally),
-                then builds adjacent skill sets — MS applications, web
-                browsing, applying for jobs online. Soft-skill prep is woven
-                in: resume building, mock interviews, communication
+                then builds adjacent skill sets such as MS applications, web
+                browsing, and applying for jobs online. Soft-skill prep is
+                woven in: resume building, mock interviews, communication
                 fundamentals. Where vacancies open up in the local market, we
                 connect students directly.
               </p>
@@ -260,9 +276,9 @@ export default function TheFoundation() {
               <p className="text-foreground/80">
                 Two-tier program: a 3-month certificate course and a 6-month
                 diploma. Beyond training, the centre operates as a small
-                workshop — students take work orders, mentor newer students,
-                and learn the working dynamics of supplying to local vendors
-                and clothing brands.
+                workshop where students take work orders, mentor newer
+                students, and learn the dynamics of supplying to local
+                vendors and clothing brands.
               </p>
             </div>
           </div>
@@ -273,11 +289,11 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="04" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Children</SectionEyebrow>
           <SectionTitle>BACHPAN</SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-8 items-start">
+          <div className="grid md:grid-cols-2 gap-10 mt-10 items-start">
             <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
               <Image
                 src="/images/gallery/hero-bachpan.jpg"
@@ -292,13 +308,13 @@ export default function TheFoundation() {
               <p>
                 <strong>Bachpan</strong> is our work with children in
                 government schools and slum areas around Bikaner. The format
-                is intentionally flexible — summer learning camps in govt
+                is intentionally flexible: summer learning camps in govt
                 schools, weekend workshops, study-kit drives, distribution
-                drives, Children&apos;s Day events.
+                drives, and Children&apos;s Day events.
               </p>
               <p>
                 The flagship initiative under this banner is{' '}
-                <strong>Adhigam</strong> — a summer learning camp launched in
+                <strong>Adhigam</strong>, a summer learning camp launched in
                 2023 across 4 government schools, now running an expanded
                 second edition.
               </p>
@@ -312,11 +328,11 @@ export default function TheFoundation() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-md border-l-4 border-accent bg-muted/40 p-5 md:p-6">
-            <p className="text-xs uppercase tracking-wider font-semibold text-accent mb-1">
+          <div className="mt-12 rounded-md border-l-4 border-accent bg-muted/40 p-6">
+            <p className="text-xs uppercase tracking-wider font-semibold text-accent mb-1.5">
               On record
             </p>
-            <p className="text-sm md:text-base text-foreground/85">
+            <p className="text-sm md:text-base text-foreground/85 leading-relaxed">
               Children&apos;s Day 2021: 150 kids from 5 slum areas, sports
               events, education kits, frocks stitched by women in our
               stitching program. Distribution drives at MP Colony Govt School
@@ -331,11 +347,15 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="05" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Colleges</SectionEyebrow>
-          <SectionTitle>HIGHER-ED<br />PARTNERSHIPS</SectionTitle>
+          <SectionTitle>
+            HIGHER-ED
+            <br />
+            PARTNERSHIPS
+          </SectionTitle>
 
-          <p className="mt-6 max-w-3xl text-sm md:text-base text-foreground/85 leading-relaxed">
+          <p className="mt-8 max-w-3xl text-sm md:text-base text-foreground/85 leading-relaxed">
             We partner with colleges to revive under-used facilities and run
             free, future-facing courses. Two case studies show the model:
           </p>
@@ -351,7 +371,7 @@ export default function TheFoundation() {
             />
             <CaseBlock
               tag="Active"
-              title="Engineering College Bikaner — AI Workshops"
+              title="Engineering College Bikaner: AI Workshops"
               when="Since May 2026 · expanding"
               body="A new partnership with the EICE Department under HOD Ms. Pooja Bhardwaj. Phase 1 introductory session covered AI in industry, the shift from chatbots to autonomous agents, hallucination risks, and tools like Claude Code and Copilot. VLSI segment covered hardware design tools and how AI is starting to influence hardware design. A hands-on Phase 2 project in collaboration with the Foundation has been announced."
               photo="/images/gallery/ai-workshop-ecb-2026.jpg"
@@ -365,24 +385,26 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="06" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · CSR</SectionEyebrow>
           <SectionTitle>C.S.R. PROJECTS</SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-8 items-start">
+          <div className="grid md:grid-cols-2 gap-10 mt-10 items-start">
             <div className="space-y-4 text-sm md:text-base leading-relaxed text-foreground/85">
               <p>
-                Our embarkment into the world of corporate partnerships began
-                with a pilot project with{' '}
-                <strong>Bikaner Electricity Supply Limited (Bk.E.S.L)</strong>
+                Our entry into the world of corporate partnerships began with
+                a pilot project with{' '}
+                <strong>
+                  Bikaner Electricity Supply Limited (Bk.E.S.L)
+                </strong>
                 , itself a result of contributions made during the second
                 wave of COVID.
               </p>
               <p>
                 After the pilot, the leadership team at Bk.E.S.L. entrusted
-                us with five more projects across health, eye-care and
-                school infrastructure. The continued momentum echoes a quote
-                from C.S. Lewis: &ldquo;if you do one good deed, your reward
+                us with five more projects across health, eye-care and school
+                infrastructure. The continued momentum echoes a quote from
+                C.S. Lewis: &ldquo;if you do one good deed, your reward
                 usually is to be set to do another and harder and better
                 one.&rdquo;
               </p>
@@ -414,11 +436,11 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="07" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · CSR Numbers</SectionEyebrow>
           <SectionTitle>C.S.R. PROJECTS</SectionTitle>
 
-          <div className="mt-8 grid sm:grid-cols-2 gap-5">
+          <div className="mt-10 grid sm:grid-cols-2 gap-5">
             <StatCard
               n="1"
               title="Health Check-up Camp"
@@ -457,7 +479,8 @@ export default function TheFoundation() {
             />
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
-            Health camp was followed up with post-diagnostic consultations and medicine distributions.
+            Health camp was followed up with post-diagnostic consultations
+            and medicine distributions.
           </p>
         </div>
       </Page>
@@ -466,11 +489,11 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="08" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Emergency</SectionEyebrow>
           <SectionTitle>DISASTER RELIEF</SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-8 items-start">
+          <div className="grid md:grid-cols-2 gap-10 mt-10 items-start">
             <div className="relative aspect-[4/3] rounded-md overflow-hidden bg-muted">
               <Image
                 src="/images/12a/image18.jpg"
@@ -484,13 +507,14 @@ export default function TheFoundation() {
             <div className="space-y-4 text-sm md:text-base leading-relaxed text-foreground/85">
               <p>
                 <strong>When the pandemic hit.</strong> Our disaster-relief
-                muscle was forged through the COVID response in Bikaner —
-                six weeks, ₹6.58 lakh in spend, around 1,500 families served.
+                muscle was forged through the COVID response in Bikaner: six
+                weeks, ₹6.58 lakh in spend, around 1,500 families served.
               </p>
               <p>
                 We delivered <strong>6,000+ meal boxes</strong> to COVID
-                patients at their doorstep, <strong>4,000+ ration kits</strong>{' '}
-                to families whose livelihood was impacted, free home{' '}
+                patients at their doorstep,{' '}
+                <strong>4,000+ ration kits</strong> to families whose
+                livelihood was impacted, free home{' '}
                 <strong>RT-PCR sample collection</strong> for residents aged
                 60+ in coordination with the Central Medical Health Office,
                 and <strong>rent-free oxygen concentrators</strong> for
@@ -510,15 +534,15 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="09" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Drive</SectionEyebrow>
           <SectionTitle>DIGITAL PAHEL</SectionTitle>
 
-          <div className="grid md:grid-cols-[1fr_280px] gap-8 mt-8 items-start">
+          <div className="grid md:grid-cols-[1fr_280px] gap-10 mt-10 items-start">
             <div className="space-y-4 text-sm md:text-base leading-relaxed text-foreground/85">
               <p>
                 <strong>Digital Pahel</strong> (pahel = &lsquo;initiative&rsquo;
-                in Hindi) is our in-kind donation campaign — we collect
+                in Hindi) is our in-kind donation campaign. We collect
                 laptops, desktops, tablets, smartphones, cameras, and sewing
                 machines, refurbish them, and deploy them directly to
                 students at our centres, partner colleges, and government
@@ -528,22 +552,22 @@ export default function TheFoundation() {
                 <strong>None of the items donated will be sold.</strong>{' '}
                 Every device is tested, cleaned, repaired if needed, and
                 configured for our centre or a partner school. Sewing
-                machines are serviced before deployment. We share back, with
-                the donor, where each item ended up.
+                machines are serviced before deployment. We share back with
+                the donor where each item ended up.
               </p>
               <p>
-                The campaign accepts donations from Bikaner and across India
-                — donors from Delhi, Mumbai and Jaipur have participated in
-                the past.
+                The campaign accepts donations from Bikaner and across India.
+                Donors from Delhi, Mumbai and Jaipur have participated in the
+                past.
               </p>
             </div>
             <div className="rounded-md border border-border bg-muted/30 p-5">
-              <p className="text-xs uppercase tracking-wider font-semibold text-accent mb-2">
+              <p className="text-xs uppercase tracking-wider font-semibold text-accent mb-3">
                 What we accept
               </p>
-              <ul className="text-xs space-y-1.5">
+              <ul className="text-xs space-y-1.5 text-foreground/80">
                 <li>· Laptops (working or repairable)</li>
-                <li>· Desktops & monitors</li>
+                <li>· Desktops &amp; monitors</li>
                 <li>· Tablets · iPads</li>
                 <li>· Android smartphones</li>
                 <li>· Cameras · webcams</li>
@@ -558,12 +582,12 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="10" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Looking Ahead</SectionEyebrow>
           <SectionTitle>TARGETS AHEAD</SectionTitle>
 
-          <div className="mt-8 grid md:grid-cols-2 gap-8 text-sm md:text-base leading-relaxed text-foreground/85">
-            <div className="space-y-3">
+          <div className="mt-10 grid md:grid-cols-2 gap-10 text-sm md:text-base leading-relaxed text-foreground/85">
+            <div className="space-y-4">
               <p>
                 <strong>Coverage in rural Rajasthan.</strong> Increase the
                 reach of our skill development programs through mobile setups
@@ -583,7 +607,7 @@ export default function TheFoundation() {
                 platforms.
               </p>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <p>
                 <strong>Project-based learning.</strong> Integrate soft-skill
                 training more deeply into the &lsquo;Computer & I.T.&rsquo;
@@ -610,12 +634,16 @@ export default function TheFoundation() {
       <Page>
         <CornerAccents />
         <PageFooter n="11" />
-        <div className="px-6 md:px-16 py-10 md:py-14">
+        <div className="px-8 md:px-16 py-12 md:py-16">
           <SectionEyebrow>The Foundation · Governance</SectionEyebrow>
-          <SectionTitle>COMPLIANCE &<br />TRANSPARENCY</SectionTitle>
+          <SectionTitle>
+            COMPLIANCE &amp;
+            <br />
+            TRANSPARENCY
+          </SectionTitle>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-8 text-sm md:text-base leading-relaxed text-foreground/85">
-            <div className="space-y-3">
+          <div className="grid md:grid-cols-2 gap-10 mt-10 text-sm md:text-base leading-relaxed text-foreground/85">
+            <div className="space-y-4">
               <p>
                 S.T.A.R.K. (Stratifying and Advancing Rural Knowledge)
                 Foundation is a <strong>Section 8 registered firm</strong>{' '}
@@ -630,15 +658,12 @@ export default function TheFoundation() {
               <p>
                 We are M.C.A.-compliant for C.S.R. activities and registered
                 on portals such as <strong>Benevity</strong> and{' '}
-                <strong>Razorpay</strong> for fundraising campaigns.
-              </p>
-              <p>
-                Active profiles maintained on government-regulated portals
-                including <strong>NGO Darpan</strong> and{' '}
-                <strong>Gyan Sankalp</strong>.
+                <strong>Razorpay</strong> for fundraising campaigns. Active
+                profiles maintained on government portals including{' '}
+                <strong>NGO Darpan</strong> and <strong>Gyan Sankalp</strong>.
               </p>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <p>
                 <strong>Flow of funds.</strong> 100% of donations come
                 through online transfers (Razorpay subscriptions, direct bank
@@ -652,58 +677,24 @@ export default function TheFoundation() {
               </p>
               <p>
                 <strong>Stakeholder access.</strong> Any stakeholder can be
-                added on request to inspect monthly expense records. We
-                share the full P&L breakup with active CSR partners and
+                added on request to inspect monthly expense records. We share
+                the full P&amp;L breakup with active CSR partners and
                 significant donors as part of standard reporting.
               </p>
-            </div>
-          </div>
-
-          <div className="mt-10 grid md:grid-cols-2 gap-6">
-            <div className="rounded-md border border-border bg-muted/30 p-5">
-              <p className="text-center text-base font-semibold mb-3">
-                Funding Mix (historical)
-              </p>
-              <p className="text-xs text-center text-muted-foreground mb-4">
-                Indicative breakdown
-              </p>
-              <BreakdownBar
-                items={[
-                  { label: 'CSR Partners', pct: 66, color: '#16a34a' },
-                  { label: 'Directors', pct: 16, color: '#0e7490' },
-                  { label: 'Other contributors', pct: 18, color: '#facc15' },
-                ]}
-              />
-            </div>
-            <div className="rounded-md border border-border bg-muted/30 p-5">
-              <p className="text-center text-base font-semibold mb-3">
-                Expenditure Mix (historical)
-              </p>
-              <p className="text-xs text-center text-muted-foreground mb-4">
-                Indicative breakdown
-              </p>
-              <BreakdownBar
-                items={[
-                  { label: 'CSR Projects', pct: 60, color: '#1e3a8a' },
-                  { label: 'Employee Salaries', pct: 16, color: '#ea580c' },
-                  { label: 'Trainer Cost', pct: 11, color: '#94a3b8' },
-                  { label: 'Capital Expenditure', pct: 4, color: '#facc15' },
-                  { label: 'Other Operating', pct: 3, color: '#10b981' },
-                  { label: 'Other Activities', pct: 3, color: '#0e7490' },
-                  { label: 'Rent & Utilities', pct: 2, color: '#a855f7' },
-                  { label: 'Auditing & Compliance', pct: 1, color: '#64748b' },
-                ]}
-              />
             </div>
           </div>
         </div>
       </Page>
 
       {/* ============== THANK YOU ============== */}
-      <Page bg="thanks">
+      <Page fixed>
         <CornerAccents />
-        <div className="relative h-full flex flex-col justify-between p-8 md:p-16">
-          <div className="grid grid-cols-3 gap-3 md:gap-5 mt-8">
+        <div className="absolute inset-0 px-10 md:px-16 py-14 md:py-20 flex flex-col">
+          <div className="text-xs uppercase tracking-[0.3em] text-foreground/60">
+            With gratitude
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 md:gap-5 mt-10 mb-auto">
             {[
               '/images/gallery/recent-stitching-2026.jpg',
               '/images/gallery/water-cooler-bhim-vridha-2026.jpg',
@@ -714,7 +705,7 @@ export default function TheFoundation() {
             ].map((src) => (
               <div
                 key={src}
-                className="relative aspect-square rounded-md overflow-hidden border-4 border-primary/20 bg-muted"
+                className="relative aspect-square rounded-md overflow-hidden border-2 border-primary/15 bg-muted"
               >
                 <Image
                   src={src}
@@ -728,7 +719,7 @@ export default function TheFoundation() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-[1fr_auto] gap-6 items-end mt-8">
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-end mt-10">
             <div className="flex items-center gap-4">
               <Image
                 src="/images/ebeb61_602706572e3e4b1f9343ca4d617325fb_mv2.png"
@@ -737,16 +728,19 @@ export default function TheFoundation() {
                 height={56}
                 priority
               />
-              <div className="text-xs space-y-0.5">
-                <div>📞 +91-7014237837</div>
-                <div>✉ hello@starkfoundation.in</div>
-                <div>🌐 www.starkfoundation.in</div>
+              <div className="text-xs space-y-0.5 text-foreground/75">
+                <div className="font-semibold text-foreground text-sm">
+                  STARK Foundation
+                </div>
+                <div>+91-7014237837</div>
+                <div>hello@starkfoundation.in</div>
+                <div>www.starkfoundation.in</div>
               </div>
             </div>
-            <div className="text-5xl md:text-6xl font-semibold tracking-tight text-primary">
+            <div className="text-5xl md:text-7xl font-semibold tracking-tight text-primary leading-[0.9] md:text-right">
               THANK
               <br />
-              YOU !
+              YOU
             </div>
           </div>
         </div>
@@ -769,12 +763,21 @@ export default function TheFoundation() {
 
 // =================== Components ===================
 
-function Page({ children, bg }: { children: React.ReactNode; bg?: 'cover' | 'thanks' }) {
+function Page({
+  children,
+  fixed,
+}: {
+  children: React.ReactNode
+  fixed?: boolean
+}) {
+  // `fixed` pages have explicit A4 height — used for cover & thank-you, where
+  // the layout needs the children to fill the page. Content pages use
+  // `min-height` so they grow with content.
   return (
     <section
-      className={`relative w-full mx-auto max-w-[210mm] min-h-[297mm] overflow-hidden bg-white shadow-sm print:shadow-none print:break-after-page ${
-        bg === 'cover' ? 'bg-primary' : ''
-      } ${bg === 'thanks' ? 'bg-white' : ''}`}
+      className={`relative w-full mx-auto max-w-[210mm] overflow-hidden bg-white shadow-sm print:shadow-none print:break-after-page ${
+        fixed ? 'h-[297mm]' : 'min-h-[297mm]'
+      }`}
     >
       {children}
     </section>
@@ -782,12 +785,11 @@ function Page({ children, bg }: { children: React.ReactNode; bg?: 'cover' | 'tha
 }
 
 function CornerAccents() {
-  // Mirrors the orange + blue diagonal chevron accents from the 2022 PDF.
   return (
     <>
       <svg
         aria-hidden
-        className="absolute top-0 left-0 w-28 h-28 md:w-36 md:h-36"
+        className="absolute top-0 left-0 w-28 h-28 md:w-36 md:h-36 pointer-events-none"
         viewBox="0 0 144 144"
       >
         <polygon points="0,0 50,0 14,40 0,40" fill="#ea580c" />
@@ -795,51 +797,39 @@ function CornerAccents() {
       </svg>
       <svg
         aria-hidden
-        className="absolute bottom-0 right-0 w-28 h-28 md:w-36 md:h-36"
+        className="absolute bottom-0 right-0 w-28 h-28 md:w-36 md:h-36 pointer-events-none"
         viewBox="0 0 144 144"
       >
         <polygon points="144,144 94,144 130,104 144,104" fill="#ea580c" />
         <polygon points="86,144 34,144 84,84 130,84" fill="#1e3a8a" />
-      </svg>
-      {/* Subtle background flourish */}
-      <svg
-        aria-hidden
-        className="absolute -z-0 inset-0 w-full h-full opacity-[0.04] pointer-events-none"
-        viewBox="0 0 600 800"
-        preserveAspectRatio="none"
-      >
-        {Array.from({ length: 18 }).map((_, i) => (
-          <path
-            key={i}
-            d={`M 0 ${100 + i * 35} Q 300 ${50 + i * 30} 600 ${120 + i * 38}`}
-            stroke="#1e3a8a"
-            strokeWidth="1"
-            fill="none"
-          />
-        ))}
       </svg>
     </>
   )
 }
 
 function CoverAccents() {
+  // Larger accents for the cover, layered above the photo.
   return (
     <>
       <svg
         aria-hidden
-        className="absolute top-0 left-0 w-40 h-40 md:w-56 md:h-56 z-10"
+        className="absolute top-0 left-0 w-40 h-40 md:w-56 md:h-56 z-20 pointer-events-none"
         viewBox="0 0 224 224"
       >
         <polygon points="0,0 80,0 24,60 0,60" fill="#ea580c" />
-        <polygon points="92,0 170,0 90,90 14,90" fill="#1e3a8a" opacity="0.7" />
+        <polygon points="92,0 170,0 90,90 14,90" fill="#1e3a8a" opacity="0.85" />
       </svg>
       <svg
         aria-hidden
-        className="absolute bottom-0 right-0 w-40 h-40 md:w-56 md:h-56 z-10"
+        className="absolute bottom-0 right-0 w-40 h-40 md:w-56 md:h-56 z-20 pointer-events-none"
         viewBox="0 0 224 224"
       >
         <polygon points="224,224 144,224 200,164 224,164" fill="#ea580c" />
-        <polygon points="132,224 54,224 134,134 210,134" fill="#1e3a8a" opacity="0.7" />
+        <polygon
+          points="132,224 54,224 134,134 210,134"
+          fill="#1e3a8a"
+          opacity="0.85"
+        />
       </svg>
     </>
   )
@@ -847,7 +837,7 @@ function CoverAccents() {
 
 function PageFooter({ n }: { n: string }) {
   return (
-    <div className="absolute bottom-6 right-12 md:right-20 text-[10px] md:text-xs tracking-widest text-foreground/60 z-10">
+    <div className="absolute bottom-5 right-12 md:right-20 text-[10px] md:text-xs tracking-widest text-foreground/60 z-10">
       STARK FOUNDATION &nbsp;|&nbsp; PAGE {n}
     </div>
   )
@@ -855,7 +845,7 @@ function PageFooter({ n }: { n: string }) {
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-[10px] md:text-xs tracking-[0.2em] uppercase text-foreground/60 mb-3 border-b border-foreground/15 pb-3 max-w-md">
+    <div className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-foreground/60 mb-3 border-b border-foreground/15 pb-3 max-w-md">
       {children}
     </div>
   )
@@ -885,11 +875,18 @@ function CaseBlock({
   alt: string
 }) {
   return (
-    <div className="grid md:grid-cols-[280px_1fr] gap-5 rounded-md border border-border overflow-hidden bg-card">
-      <div className="relative aspect-[4/3] md:aspect-auto bg-muted">
-        <Image src={photo} alt={alt} fill priority sizes="(max-width: 768px) 100vw, 280px" className="object-cover" />
+    <div className="grid md:grid-cols-[260px_1fr] gap-0 rounded-md border border-border overflow-hidden bg-card">
+      <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[180px] bg-muted">
+        <Image
+          src={photo}
+          alt={alt}
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 260px"
+          className="object-cover"
+        />
       </div>
-      <div className="p-5 md:py-6 md:pr-6">
+      <div className="p-5 md:p-6">
         <div className="inline-flex text-[10px] uppercase tracking-wider font-semibold bg-accent/15 text-accent px-2 py-0.5 rounded-full mb-2">
           {tag}
         </div>
@@ -916,8 +913,8 @@ function StatCard({
 }) {
   return (
     <div className="rounded-md border border-border bg-card overflow-hidden">
-      <div className="bg-foreground/85 text-white px-4 py-2 flex items-center gap-3">
-        <div className="text-xs font-semibold rounded bg-white/15 px-2 py-0.5">
+      <div className="bg-foreground/85 text-white px-4 py-2.5 flex items-center gap-3">
+        <div className="text-xs font-semibold rounded bg-white/20 px-2 py-0.5">
           {n}
         </div>
         <div className="text-sm md:text-base font-semibold leading-tight">
@@ -925,7 +922,11 @@ function StatCard({
           <div className="text-xs text-white/75 font-normal">{subtitle}</div>
         </div>
       </div>
-      <div className={`p-4 grid gap-4 ${wide ? 'sm:grid-cols-3 md:grid-cols-4' : 'sm:grid-cols-2'}`}>
+      <div
+        className={`p-5 grid gap-4 ${
+          wide ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4' : 'grid-cols-2'
+        }`}
+      >
         {stats.map(([v, l]) => (
           <div key={l}>
             <div className="text-2xl md:text-3xl font-semibold text-primary leading-none">
@@ -937,31 +938,6 @@ function StatCard({
           </div>
         ))}
       </div>
-    </div>
-  )
-}
-
-function BreakdownBar({ items }: { items: { label: string; pct: number; color: string }[] }) {
-  return (
-    <div>
-      <div className="h-3 w-full rounded-full overflow-hidden flex">
-        {items.map((it) => (
-          <div
-            key={it.label}
-            style={{ width: `${it.pct}%`, backgroundColor: it.color }}
-            title={`${it.label}: ${it.pct}%`}
-          />
-        ))}
-      </div>
-      <ul className="mt-3 text-xs space-y-1">
-        {items.map((it) => (
-          <li key={it.label} className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: it.color }} />
-            <span className="text-foreground/80 flex-1">{it.label}</span>
-            <span className="font-semibold tabular-nums">{it.pct}%</span>
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }
