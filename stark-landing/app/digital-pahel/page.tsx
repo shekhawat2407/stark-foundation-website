@@ -71,7 +71,7 @@ export default function DigitalDaan() {
       <PageHeader
         eyebrow="Get Involved · Campaign"
         title="Digital Pahel: give your old device a second life as a student’s first."
-        description="STARK Foundation is collecting laptops, desktops, smartphones, sewing machines and books across Bikaner, to put directly into our vocational and school programs."
+        description="STARK Foundation is collecting laptops, desktops, smartphones, sewing machines and books to put directly into our vocational and school programs."
       >
         <div className="flex flex-wrap gap-3">
           <a
