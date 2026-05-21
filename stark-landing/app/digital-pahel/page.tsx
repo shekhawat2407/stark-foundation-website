@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import {
   ArrowRight,
   Laptop,
@@ -13,6 +12,7 @@ import {
   GraduationCap,
 } from 'lucide-react'
 import { PageHeader } from '@/components/site/page-header'
+import { DeviceDonationForm } from './DeviceDonationForm'
 
 const accepted = [
   {
@@ -74,12 +74,12 @@ export default function DigitalDaan() {
         description="STARK Foundation is collecting laptops, desktops, smartphones, sewing machines and books across Bikaner, to put directly into our vocational and school programs."
       >
         <div className="flex flex-wrap gap-3">
-          <Link
-            href="mailto:hello@starkfoundation.in?subject=Digital%20Pahel%20%E2%80%94%20I%20want%20to%20donate"
+          <a
+            href="#pledge"
             className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent/90"
           >
             I want to donate <ArrowRight className="h-4 w-4" />
-          </Link>
+          </a>
           <a
             href="tel:+917014237837"
             className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold hover:bg-muted"
@@ -203,32 +203,29 @@ export default function DigitalDaan() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20 grid md:grid-cols-2 gap-8 items-center">
+      {/* Donation form */}
+      <section id="pledge" className="bg-muted/30 border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20 grid md:grid-cols-2 gap-10 items-start">
           <div>
-            <h2 className="text-2xl md:text-3xl font-semibold">
-              Have something to donate?
+            <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
+              Pledge a donation
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+              Tell us what you have. We&apos;ll take it from there.
             </h2>
-            <p className="mt-3 text-white/90 max-w-xl">
-              Email us with what you have and where you are. We respond within
-              48 hours, confirm the fit, and arrange the next step.
+            <p className="text-sm text-muted-foreground max-w-md">
+              Fill in the form and submit. We respond within 48 hours to
+              confirm the fit and arrange pickup or drop-off.
+            </p>
+            <p className="text-sm text-muted-foreground max-w-md mt-3">
+              Prefer to reach out directly? Email{' '}
+              <a className="underline" href="mailto:hello@starkfoundation.in">
+                hello@starkfoundation.in
+              </a>{' '}
+              or WhatsApp <strong>+91 70142 37837</strong>.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 md:justify-end">
-            <Link
-              href="mailto:hello@starkfoundation.in?subject=Digital%20Pahel%20%E2%80%94%20I%20want%20to%20donate"
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:bg-accent/90"
-            >
-              Start with an email <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="tel:+917014237837"
-              className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/20"
-            >
-              Or call +91-7014237837
-            </a>
-          </div>
+          <DeviceDonationForm />
         </div>
       </section>
     </>
