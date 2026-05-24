@@ -264,7 +264,7 @@ export default function AboutUs() {
           Behind Sardar Hall, Mehron Ka Mohalla, Bikaner, Rajasthan
         </p>
         <p className="text-base text-muted-foreground">
-          +91-7014237837 · hello@starkfoundation.in
+          +91-6377730336 · hello@starkfoundation.in
         </p>
         <div className="mt-8">
           <Link

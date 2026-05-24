@@ -141,7 +141,7 @@ export function StudentApplicationForm() {
       )}
       {status === 'error' && (
         <p className="text-sm text-destructive">
-          Something went wrong. Please WhatsApp / call <strong>+91 70142 37837</strong> or email{' '}
+          Something went wrong. Please WhatsApp / call <strong>+91 63777 30336</strong> or email{' '}
           <a className="underline" href="mailto:hello@starkfoundation.in">
             hello@starkfoundation.in
           </a>{' '}

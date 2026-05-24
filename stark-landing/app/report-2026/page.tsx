@@ -48,7 +48,7 @@ export default function Report2026() {
           </p>
           <div className="mt-6 text-sm text-muted-foreground flex flex-wrap gap-x-6 gap-y-1">
             <span>hello@starkfoundation.in</span>
-            <span>+91-7014237837</span>
+            <span>+91-6377730336</span>
             <span>starkfoundation.in</span>
           </div>
         </section>
@@ -344,7 +344,7 @@ export default function Report2026() {
           <FactGrid
             rows={[
               ['Address', 'Behind Sardar Hall, Mehron Ka Mohalla, Bikaner, Rajasthan'],
-              ['Phone / WhatsApp', '+91-7014237837'],
+              ['Phone / WhatsApp', '+91-6377730336'],
               ['Email', 'hello@starkfoundation.in'],
               ['Website', 'starkfoundation.in'],
               ['LinkedIn', 'linkedin.com/company/starkfndn'],

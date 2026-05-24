@@ -41,7 +41,7 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16 grid md:grid-cols-2 gap-10">
         <div className="space-y-4">
-          <ContactRow icon={Phone} label="Phone" value="+91-7014237837" href="tel:+917014237837" />
+          <ContactRow icon={Phone} label="Phone" value="+91-6377730336" href="tel:+916377730336" />
           <ContactRow icon={Mail} label="Email" value="hello@starkfoundation.in" href="mailto:hello@starkfoundation.in" />
           <ContactRow icon={MapPin} label="Address" value="Bikaner, Rajasthan, India" />
         </div>

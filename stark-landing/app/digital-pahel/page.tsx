@@ -81,10 +81,10 @@ export default function DigitalDaan() {
             I want to donate <ArrowRight className="h-4 w-4" />
           </a>
           <a
-            href="tel:+917014237837"
+            href="tel:+916377730336"
             className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-semibold hover:bg-muted"
           >
-            +91-7014237837
+            +91-6377730336
           </a>
         </div>
       </PageHeader>
@@ -221,7 +221,7 @@ export default function DigitalDaan() {
               <a className="underline" href="mailto:hello@starkfoundation.in">
                 hello@starkfoundation.in
               </a>{' '}
-              or WhatsApp <strong>+91 70142 37837</strong>.
+              or WhatsApp <strong>+91 63777 30336</strong>.
             </p>
           </div>
           <DeviceDonationForm />

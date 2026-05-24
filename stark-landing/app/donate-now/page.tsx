@@ -92,8 +92,8 @@ export default function DonatePage() {
             hello@starkfoundation.in
           </a>{' '}
           or call{' '}
-          <a className="underline text-foreground" href="tel:+917014237837">
-            +91-7014237837
+          <a className="underline text-foreground" href="tel:+916377730336">
+            +91-6377730336
           </a>
           .
         </div>

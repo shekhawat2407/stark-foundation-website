@@ -210,7 +210,7 @@ export default function VocationalTraining() {
             <div className="mt-6 text-sm">
               <div className="font-medium">Questions? / कोई प्रश्न?</div>
               <div className="text-muted-foreground mt-1">
-                Call / WhatsApp <strong>+91 70142 37837</strong>
+                Call / WhatsApp <strong>+91 63777 30336</strong>
                 <br />
                 Email{' '}
                 <a className="underline" href="mailto:hello@starkfoundation.in">

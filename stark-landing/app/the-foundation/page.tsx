@@ -116,7 +116,7 @@ export default function TheFoundation() {
             </div>
           </div>
           <div className="text-xs md:text-sm space-y-0.5 opacity-90 pl-1">
-            <div>+91-7014237837</div>
+            <div>+91-6377730336</div>
             <div>hello@starkfoundation.in</div>
             <div>www.starkfoundation.in</div>
           </div>
@@ -786,7 +786,7 @@ export default function TheFoundation() {
                 <div className="font-semibold text-foreground text-sm">
                   STARK Foundation
                 </div>
-                <div>+91-7014237837</div>
+                <div>+91-6377730336</div>
                 <div>hello@starkfoundation.in</div>
                 <div>www.starkfoundation.in</div>
               </div>

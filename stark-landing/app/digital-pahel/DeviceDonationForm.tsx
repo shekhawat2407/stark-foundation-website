@@ -229,7 +229,7 @@ export function DeviceDonationForm() {
           <a className="underline" href="mailto:hello@starkfoundation.in">
             hello@starkfoundation.in
           </a>{' '}
-          or WhatsApp +91 70142 37837 directly.
+          or WhatsApp +91 63777 30336 directly.
         </p>
       )}
     </form>

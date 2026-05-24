@@ -27,7 +27,7 @@ export function Footer() {
         <div>
           <div className="text-sm font-semibold mb-3">Contact</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5" /><a href="tel:+917014237837" className="hover:text-foreground">+91-7014237837</a></li>
+            <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5" /><a href="tel:+916377730336" className="hover:text-foreground">+91-6377730336</a></li>
             <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5" /><a href="mailto:hello@starkfoundation.in" className="hover:text-foreground">hello@starkfoundation.in</a></li>
             <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5" />Bikaner, Rajasthan, India</li>
           </ul>
