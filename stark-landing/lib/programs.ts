@@ -238,7 +238,18 @@ export const activities: Activity[] = [
     beneficiaries: 140,
     spendINR: 46290,
     description: 'Study kits distributed to support student learning.',
-    photo: '/images/12a/image1.jpg',
+    photo: '/images/gallery/study-kit-pemasar-2024.jpg',
+  },
+  {
+    id: 'adhigam-2-0-2026',
+    bucket: 'bachpan',
+    title: 'Adhigam 2.0: Computer Learning Camp',
+    date: 'May – June 3, 2026',
+    venue: 'Udasar, near Bikaner',
+    beneficiaries: 35,
+    description:
+      'Free one-month computer course for 35 government school students from Udasar village. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher — our team rented a hall, brought our own machines, and ran the program. All 35 students were certified on completion.',
+    photo: '/images/gallery/adhigam-2026.jpg',
   },
   {
     id: 'maharani-mou-2024',
@@ -278,17 +289,7 @@ export const activities: Activity[] = [
 ]
 
 // "Active right now" callouts for the homepage and program pages.
-// Adhigam 2026 is launching this month (per brainstorm); update once schools are confirmed.
 export const activeNow = [
-  {
-    id: 'adhigam-2026',
-    bucket: 'bachpan' as ProgramBucket,
-    title: 'Adhigam 2026: Summer Learning Camp',
-    period: 'May – June 2026',
-    status: 'Launching this month',
-    description:
-      "Our flagship summer learning camp's second edition, with a broader school list than 2023. Schools, dates and target reach being finalised.",
-  },
   {
     id: 'ecb-ai-workshops',
     bucket: 'higher-ed-partnerships' as ProgramBucket,

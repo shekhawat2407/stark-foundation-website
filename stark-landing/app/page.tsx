@@ -196,6 +196,13 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {[
               {
+                src: '/images/gallery/adhigam-2026.jpg',
+                date: 'June 3, 2026',
+                caption:
+                  'Adhigam 2.0: one-month free computer course for 35 govt school students in Udasar. All certified on completion. Most used a computer for the first time.',
+                href: '/bachpan',
+              },
+              {
                 src: '/images/gallery/ai-workshop-ecb-2026.jpg',
                 date: 'May 13, 2026',
                 caption:
@@ -208,13 +215,6 @@ export default function Home() {
                 caption:
                   'Water Cooler Donation: installed at Bhim Vridha Ashram, Rani Bazar. Safe cold drinking water through the Rajasthan summer.',
                 href: '/community-camps',
-              },
-              {
-                src: '/images/gallery/recent-stitching-2026.jpg',
-                date: 'March 2026',
-                caption:
-                  'Stitching Batch: 2nd cohort of 2025–26 mid-session at the Bikaner centre.',
-                href: '/vocational-training',
               },
             ].map((item) => (
               <Link

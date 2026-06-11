@@ -397,7 +397,7 @@ export default function TheFoundation() {
               venue="Govt Higher Sec School, Pemasar"
               ben="140 students"
               spend="₹46,290"
-              desc="Study kits at the Pemasar school we had earlier supported with infrastructure."
+              desc="Study kits distributed to support student learning."
             />
             <ActivityRow
               year="2025"
@@ -408,11 +408,12 @@ export default function TheFoundation() {
             />
             <ActivityRow
               year="2026"
-              date="May – Jun"
-              title="Adhigam 2nd edition"
-              venue="Expanded school list, Bikaner"
-              desc="Second edition of the Adhigam summer learning camp, with a broader school list than 2023. Schools, dates and reach being finalised."
-              upcoming
+              date="May – 3 Jun"
+              title="Adhigam 2.0: Computer Learning Camp"
+              venue="Udasar, near Bikaner"
+              ben="35 students"
+              desc="Free one-month computer course for 35 govt school students. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher — our team rented a hall, brought our own machines, and ran the program. All 35 students certified on completion."
+              highlight
             />
           </div>
         </div>

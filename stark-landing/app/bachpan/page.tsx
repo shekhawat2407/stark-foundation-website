@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { ArrowRight, Sparkles, BookOpen, Package, Heart } from 'lucide-react'
 import { ProgramPageHero } from '@/components/site/program-page-hero'
 import { ActivityCard } from '@/components/site/activity-card'
-import { activitiesForBucket, programForBucket, activeNow } from '@/lib/programs'
+import { activitiesForBucket, programForBucket } from '@/lib/programs'
 
 const strands = [
   {
     icon: Sparkles,
     title: 'Adhigam',
-    desc: 'Flagship summer learning camp. 1st edition 2023, 2nd edition launching this month.',
+    desc: 'Flagship summer learning camp. 1st edition 2023 across 4 Bikaner schools; 2nd edition concluded June 2026 in Udasar.',
   },
   {
     icon: BookOpen,
@@ -30,7 +30,6 @@ const strands = [
 export default function Bachpan() {
   const program = programForBucket('bachpan')
   const activities = activitiesForBucket('bachpan')
-  const adhigam2026 = activeNow.find((a) => a.id === 'adhigam-2026')
 
   return (
     <>
@@ -41,24 +40,6 @@ export default function Bachpan() {
         title="Bachpan, wherever the children are."
         tagline={program.intro}
       />
-
-      {adhigam2026 && (
-        <section className="bg-accent/10 border-y border-accent/20">
-          <div className="mx-auto max-w-7xl px-4 md:px-6 py-5 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <span className="rounded-full bg-accent text-accent-foreground text-xs font-semibold px-2.5 py-1 uppercase tracking-wider">
-                {adhigam2026.status}
-              </span>
-              <div>
-                <div className="text-sm font-semibold">{adhigam2026.title}</div>
-                <div className="text-xs text-muted-foreground">
-                  {adhigam2026.period}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20">
         <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
