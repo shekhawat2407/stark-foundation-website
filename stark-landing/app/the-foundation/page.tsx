@@ -18,14 +18,14 @@ function DownloadPdfButton() {
 }
 
 export const metadata: Metadata = {
-  title: 'STARK Foundation — An Overview',
+  title: 'STARK Foundation: An Overview',
   description:
     'A general overview of S.T.A.R.K. Foundation: programs, centres, partnerships, transparency, and how to engage. Section-8 NGO based in Bikaner since 2019.',
 }
 
 const PAGES = [
   { n: '01', title: 'Skill Development Center' },
-  { n: '02', title: 'Bachpan — Children' },
+  { n: '02', title: 'Bachpan: Children' },
   { n: '03', title: 'Higher-Ed Partnerships' },
   { n: '04', title: 'C.S.R. Projects' },
   { n: '05', title: 'Disaster Relief' },
@@ -48,7 +48,7 @@ export default function TheFoundation() {
       <div className="print:hidden border-b border-border bg-surface">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
           <div className="text-xs text-muted-foreground">
-            STARK Foundation — Overview. Pre-rendered PDF below; print fallback also available.
+            STARK Foundation: Overview. Pre-rendered PDF below; print fallback also available.
           </div>
           <div className="flex items-center gap-2">
             <DownloadPdfButton />
@@ -378,7 +378,7 @@ export default function TheFoundation() {
               venue="Govt Girls Sr Sec School, Bhagwanpur"
               ben="200 students"
               spend="₹40,000"
-              desc="Notebooks, pens, pencils, erasers and basic supplies — easing the cost burden on families and equipping students for the term."
+              desc="Notebooks, pens, pencils, erasers and basic supplies. Eases the cost burden on families and equips students for the term."
             />
             <ActivityRow
               year="2023"
@@ -412,7 +412,7 @@ export default function TheFoundation() {
               title="Adhigam 2.0: Computer Learning Camp"
               venue="Udasar, near Bikaner"
               ben="35 students"
-              desc="Free one-month computer course for 35 govt school students. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher — our team rented a hall, brought our own machines, and ran the program. All 35 students certified on completion."
+              desc="Free one-month computer course for 35 govt school students. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher, so our team rented a hall, brought our own machines, and ran the program. All 35 students certified on completion."
               highlight
             />
           </div>

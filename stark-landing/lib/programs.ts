@@ -248,7 +248,7 @@ export const activities: Activity[] = [
     venue: 'Udasar, near Bikaner',
     beneficiaries: 35,
     description:
-      'Free one-month computer course for 35 government school students from Udasar village. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher — our team rented a hall, brought our own machines, and ran the program. All 35 students were certified on completion.',
+      'Free one-month computer course for 35 government school students from Udasar village. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher, so our team rented a hall, brought our own machines, and ran the program. All 35 students were certified on completion.',
     photo: '/images/gallery/adhigam-2026.jpg',
   },
   {
