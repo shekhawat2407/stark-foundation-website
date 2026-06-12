@@ -246,9 +246,9 @@ export const activities: Activity[] = [
     title: 'Adhigam 2.0: Computer Learning Camp',
     date: 'May – June 3, 2026',
     venue: 'Udasar, near Bikaner',
-    beneficiaries: 35,
+    beneficiaries: 55,
     description:
-      'Free one-month computer course for 35 government school students from Udasar village. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher, so our team rented a hall, brought our own machines, and ran the program. All 35 students were certified on completion.',
+      'Free one-month computer course for 55 government school students from Udasar village. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher, so our team rented a hall, brought our own machines, and ran the program. All 55 students were certified on completion.',
     photo: '/images/gallery/adhigam-2026.jpg',
   },
   {

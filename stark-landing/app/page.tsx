@@ -199,7 +199,7 @@ export default function Home() {
                 src: '/images/gallery/adhigam-2026.jpg',
                 date: 'June 3, 2026',
                 caption:
-                  'Adhigam 2.0: one-month free computer course for 35 govt school students in Udasar. All certified on completion. Most used a computer for the first time.',
+                  'Adhigam 2.0: one-month free computer course for 55 govt school students in Udasar. All certified on completion. Most used a computer for the first time.',
                 href: '/bachpan',
               },
               {

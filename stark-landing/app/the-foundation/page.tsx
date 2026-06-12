@@ -411,8 +411,8 @@ export default function TheFoundation() {
               date="May – 3 Jun"
               title="Adhigam 2.0: Computer Learning Camp"
               venue="Udasar, near Bikaner"
-              ben="35 students"
-              desc="Free one-month computer course for 35 govt school students. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher, so our team rented a hall, brought our own machines, and ran the program. All 35 students certified on completion."
+              ben="55 students"
+              desc="Free one-month computer course for 55 govt school students. Most were using a computer for the first time. The school had a computer lab set up with public money that sat unused for lack of a teacher, so our team rented a hall, brought our own machines, and ran the program. All 55 students certified on completion."
               highlight
             />
           </div>
