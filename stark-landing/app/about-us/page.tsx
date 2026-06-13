@@ -76,16 +76,16 @@ const founders: Person[] = [
     linkedin: 'https://www.linkedin.com/in/pradhyumn-singh/',
   },
   {
-    name: 'Ankita Shukla',
-    credential: 'IIT Roorkee, 2016',
-    photo: '/images/directors/ankita-shukla.jpg',
-    linkedin: 'https://www.linkedin.com/in/ankitashukla707/',
-  },
-  {
     name: 'Mohit Khatri',
     credential: 'IIT Bombay, 2016',
     photo: '/images/directors/mohit-khatri.jpg',
     linkedin: 'https://www.linkedin.com/in/mohit-khatri-932207/',
+  },
+  {
+    name: 'Ankita Shukla',
+    credential: 'IIT Roorkee, 2016',
+    photo: '/images/directors/ankita-shukla.jpg',
+    linkedin: 'https://www.linkedin.com/in/ankitashukla707/',
   },
   {
     name: 'Pranvendra Chaturvedi',
