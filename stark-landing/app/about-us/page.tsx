@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Linkedin } from 'lucide-react'
 import { ProgramPageHero } from '@/components/site/program-page-hero'
 
 const values = [
@@ -60,7 +60,47 @@ const milestones = [
   },
 ]
 
-type Person = { name: string; role?: string; photo?: string }
+type Person = {
+  name: string
+  role?: string
+  photo?: string
+  credential?: string
+  linkedin?: string
+}
+
+const founders: Person[] = [
+  {
+    name: 'Pradhyumn Singh',
+    role: 'Tech Lead',
+    credential: 'IIT BHU, 2016',
+    photo: '/images/team/pradhyumn-singh.jpg',
+    linkedin: 'https://www.linkedin.com/in/pradhyumn-singh/',
+  },
+  {
+    name: 'Ankita Shukla',
+    credential: 'IIT Roorkee, 2016',
+    photo: '/images/directors/ankita-shukla.jpg',
+    linkedin: 'https://www.linkedin.com/in/ankitashukla707/',
+  },
+  {
+    name: 'Mohit Khatri',
+    credential: 'IIT Bombay, 2016',
+    photo: '/images/directors/mohit-khatri.jpg',
+    linkedin: 'https://www.linkedin.com/in/mohit-khatri-932207/',
+  },
+  {
+    name: 'Pranvendra Chaturvedi',
+    credential: 'IIT Guwahati, 2016',
+    photo: '/images/directors/pranvendra-chaturvedi.jpg',
+    linkedin: 'https://www.linkedin.com/in/pranav92/',
+  },
+  {
+    name: 'Samar Haldey',
+    credential: 'IIT Bombay, 2015',
+    photo: '/images/directors/samar-haldey.jpg',
+    linkedin: 'https://www.linkedin.com/in/samarhaldey/',
+  },
+]
 
 const team: Person[] = [
   { name: 'Gautam Pandey', role: 'Senior Operations Coordinator', photo: '/images/team/gautam-pandey.jpg' },
@@ -70,14 +110,6 @@ const team: Person[] = [
   { name: 'Madhavi Joshi', role: 'Outreach', photo: '/images/team/madhavi-joshi.jpg' },
   { name: 'Mohit Gaba', role: 'Hardware Lead', photo: '/images/team/mohit-gaba.jpg' },
   { name: 'Aashima Rathore', role: 'Partnerships', photo: '/images/team/aashima-rathore.jpg' },
-  { name: 'Pradhyumn Singh', role: 'Tech Lead', photo: '/images/team/pradhyumn-singh.jpg' },
-]
-
-const advisors: Person[] = [
-  { name: 'Mohit Khatri', photo: '/images/directors/mohit-khatri.jpg' },
-  { name: 'Ankita Shukla', photo: '/images/directors/ankita-shukla.jpg' },
-  { name: 'Pranvendra Chaturvedi', photo: '/images/directors/pranvendra-chaturvedi.jpg' },
-  { name: 'Samar Haldey', photo: '/images/directors/samar-haldey.jpg' },
 ]
 
 function initialsOf(name: string) {
@@ -108,12 +140,30 @@ function PersonCard({ p }: { p: Person }) {
           </div>
         )}
       </div>
-      <div className="mt-3 text-sm font-semibold text-foreground leading-tight">
-        {p.name}
+      <div className="mt-3 flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <div className="text-sm font-semibold text-foreground leading-tight">
+            {p.name}
+          </div>
+          {p.role && (
+            <div className="mt-0.5 text-xs text-muted-foreground">{p.role}</div>
+          )}
+          {p.credential && (
+            <div className="mt-0.5 text-xs text-muted-foreground">{p.credential}</div>
+          )}
+        </div>
+        {p.linkedin && (
+          <a
+            href={p.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${p.name} on LinkedIn`}
+            className="shrink-0 mt-0.5 rounded-md border border-border p-1 text-muted-foreground hover:text-primary hover:border-primary/40 transition"
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+          </a>
+        )}
       </div>
-      {p.role && (
-        <div className="mt-0.5 text-xs text-muted-foreground">{p.role}</div>
-      )}
     </div>
   )
 }
@@ -218,15 +268,33 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* People — Team first, Advisory Board second */}
+      {/* People — Founding team first, Operations team second */}
       <section className="bg-surface border-b border-border">
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-20 space-y-16 md:space-y-20">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
-              The team
+              Founding team
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-3 max-w-2xl">
+              Five IIT graduates, since 2019.
+            </h2>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mb-10">
+              Started and sustained the Foundation for six years alongside
+              their full-time careers.
+            </p>
+            <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
+              {founders.map((p) => (
+                <PersonCard key={p.name} p={p} />
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
+              On the ground
             </div>
             <h2 className="text-2xl md:text-3xl font-semibold mb-10 max-w-2xl">
-              Programs &amp; operations
+              The Bikaner team
             </h2>
             <div className="flex flex-wrap justify-center gap-5">
               {team.map((p) => (
@@ -236,20 +304,6 @@ export default function AboutUs() {
                 >
                   <PersonCard p={p} />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
-              Governance
-            </div>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-10 max-w-2xl">
-              Advisory Board
-            </h2>
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {advisors.map((p) => (
-                <PersonCard key={p.name} p={p} />
               ))}
             </div>
           </div>
