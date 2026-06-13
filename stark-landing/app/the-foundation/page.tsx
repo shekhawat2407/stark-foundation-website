@@ -176,7 +176,7 @@ export default function TheFoundation() {
               <strong>Pradhyumn Singh</strong>
               <br />
               <span className="text-xs text-muted-foreground">
-                Treasurer · STARK Foundation
+                Tech Lead · STARK Foundation
               </span>
             </p>
           </div>

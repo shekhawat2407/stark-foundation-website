@@ -70,7 +70,7 @@ const team: Person[] = [
   { name: 'Madhavi Joshi', role: 'Outreach', photo: '/images/team/madhavi-joshi.jpg' },
   { name: 'Mohit Gaba', role: 'Hardware Lead', photo: '/images/team/mohit-gaba.jpg' },
   { name: 'Aashima Rathore', role: 'Partnerships', photo: '/images/team/aashima-rathore.jpg' },
-  { name: 'Pradhyumn Singh', role: 'Treasurer', photo: '/images/team/pradhyumn-singh.jpg' },
+  { name: 'Pradhyumn Singh', role: 'Tech Lead', photo: '/images/team/pradhyumn-singh.jpg' },
 ]
 
 const advisors: Person[] = [
