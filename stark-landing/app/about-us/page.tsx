@@ -71,7 +71,6 @@ type Person = {
 const founders: Person[] = [
   {
     name: 'Pradhyumn Singh',
-    role: 'Tech Lead',
     credential: 'IIT BHU, 2016',
     photo: '/images/team/pradhyumn-singh.jpg',
     linkedin: 'https://www.linkedin.com/in/pradhyumn-singh/',
