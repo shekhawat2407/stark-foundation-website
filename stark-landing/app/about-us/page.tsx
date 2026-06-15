@@ -290,10 +290,10 @@ export default function AboutUs() {
 
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
-              On the ground
+              The team
             </div>
             <h2 className="text-2xl md:text-3xl font-semibold mb-10 max-w-2xl">
-              The Bikaner team
+              Programs &amp; operations
             </h2>
             <div className="flex flex-wrap justify-center gap-5">
               {team.map((p) => (
