@@ -1,3 +1,20 @@
+# =============================================================================
+# DEPLOY WORKFLOW
+# =============================================================================
+#
+# Triggered on every push to `main` (and manually via the Actions tab).
+# Builds the Next.js static export, regenerates the stakeholder PDF, and
+# publishes the whole `stark-landing/out/` directory to GitHub Pages.
+#
+# Custom domain: starkfoundation.in (apex). The CNAME file is written by the
+# "Add .nojekyll + CNAME" step below so it survives every build.
+#
+# End-to-end time: ~2-3 minutes from push to live.
+# Cache: Puppeteer's bundled Chromium (~300 MB) is cached under
+#        ~/.cache/puppeteer keyed by package-lock.json — subsequent builds
+#        skip the ~30s Chromium download.
+# =============================================================================
+
 name: Deploy to GitHub Pages
 
 on:
@@ -14,6 +31,7 @@ permissions:
   pages: write
   id-token: write
 
+# Only one deploy at a time; queue (don't cancel) so in-flight runs finish.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -23,10 +41,13 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        # All `run:` steps execute inside the Next.js project, not the repo root.
         working-directory: stark-landing
     steps:
       - uses: actions/checkout@v4
 
+      # Pin Node version. CI must match the Node version targeted by
+      # next.config.mjs / package.json. Bumping requires testing.
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -35,6 +56,9 @@ jobs:
 
       - run: npm ci
 
+      # Puppeteer (PDF generation) needs Chromium. The package downloads its
+      # own bundled version into ~/.cache/puppeteer on first install. Cache
+      # that across runs so we don't pay the ~30 s download every time.
       - name: Cache Puppeteer browsers
         uses: actions/cache@v4
         with:
@@ -44,10 +68,17 @@ jobs:
       - name: Install Puppeteer browser (if not cached)
         run: npx puppeteer browsers install chrome
 
+      # `npm run build` chains three steps (see package.json):
+      #   1. next build         → static export to out/
+      #   2. fix-basepath.mjs   → rewrites /images/ paths (no-op on apex)
+      #   3. generate-pdf.mjs   → renders /the-foundation to a static PDF
       - name: Build (static export + PDF generation)
         # NEXT_PUBLIC_BASE_PATH intentionally unset — serving from apex custom domain.
         run: npm run build
 
+      # .nojekyll tells GitHub Pages "don't run Jekyll on this site".
+      # CNAME tells Pages which custom domain to serve from. Writing it on
+      # every build means changes to it can't be lost across deploys.
       - name: Add .nojekyll + CNAME (custom domain)
         run: |
           touch out/.nojekyll
@@ -57,6 +88,8 @@ jobs:
         with:
           path: stark-landing/out
 
+  # Separate deploy job is required by GitHub Pages best practices so the
+  # build can't accidentally interact with the deployment environment.
   deploy:
     needs: build
     runs-on: ubuntu-latest

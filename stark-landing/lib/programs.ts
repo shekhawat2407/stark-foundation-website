@@ -1,3 +1,25 @@
+/**
+ * Source-of-truth data file for everything the Foundation has done on the
+ * ground. Edit this file to add a new activity, update centre stats, or
+ * register a new partner. Pages across the site (/bachpan, /community-camps,
+ * /vocational-training, /disaster-relief, /higher-ed-partnerships, /the-foundation,
+ * /report-2026 and the homepage) pull from here via the helper functions at
+ * the bottom of the file.
+ *
+ * When adding a new activity for the annual cycle:
+ *   1. Pick the right `bucket` (program area)
+ *   2. Use a unique kebab-case `id` (e.g. 'water-cooler-bhim-vridha-2026')
+ *   3. Date can be free-form ("3 June 2026", "May – June 3, 2026", "Q2 2026")
+ *   4. Numbers (beneficiaries, spendINR) are optional but help the activity
+ *      cards render with stats
+ *   5. Photo path: /images/gallery/<kebab-name>.jpg (compress before commit,
+ *      see scripts/optimize-hero.mjs for the sharp pattern)
+ *   6. The /the-foundation report page is the only page with HAND-MAINTAINED
+ *      activity rows; update there if the activity should appear in the PDF
+ */
+
+/** The 5 program "buckets" — fixed taxonomy. Don't add new ones without a
+ *  brainstorm; pages and navigation are wired around exactly these five. */
 export type ProgramBucket =
   | 'vocational-training'
   | 'bachpan'
@@ -5,28 +27,44 @@ export type ProgramBucket =
   | 'community-camps'
   | 'disaster-relief'
 
+/** A physical training centre (currently Bikaner and Pundalsar). */
 export type Centre = {
   name: string
   location: string
+  /** Human-readable opening date, e.g. "June 2021". */
   opened: string
+  /** Course tracks offered at this centre (chip-list on the page). */
   tracks: string[]
+  /** Cumulative students trained, e.g. "250+" or "10+". */
   trained: string
+  /** Optional. Use "Stark directly" for centres without a local partner. */
   runBy?: string
 }
 
+/** A specific dated event/project. Rendered as a card on the relevant
+ *  bucket page (e.g. an entry with bucket: 'bachpan' shows on /bachpan). */
 export type Activity = {
+  /** Unique kebab-case identifier. Used as React key and for deep-linking. */
   id: string
   bucket: ProgramBucket
   title: string
+  /** Free-form date string. Examples: "May 8, 2026", "May – June 3, 2026". */
   date: string
+  /** Venue, ideally with locality, e.g. "Govt Sr Sec School, Pemasar". */
   venue: string
   beneficiaries?: number
+  /** Total spend in Indian Rupees (no symbol, no commas). */
   spendINR?: number
   description: string
+  /** Optional list of partner orgs/donors. Use ['Anonymous donor partner']
+   *  if a donor wishes to remain unnamed. */
   partners?: string[]
+  /** Web path to the activity photo. Place files in
+   *  stark-landing/public/images/gallery/<kebab-name>.jpg. */
   photo?: string
 }
 
+/** A program (bucket-level) summary. Used for landing-card mosaics. */
 export type Program = {
   bucket: ProgramBucket
   slug: string
@@ -319,14 +357,30 @@ export const ngoCollaborators: Partner[] = [
   { name: 'Vrikshit Foundation', logo: '/images/partners/vrikshit-foundation.png' },
 ]
 
-// Helpers
-// activitiesForBucket relies on the activities array already being in chronological order.
-// Don't sort here — the human-readable dates ("May 5 – June 15, 2021") aren't ISO and would
-// sort alphabetically (Feb 2022 before May 2021), which is wrong.
+// =============================================================================
+// Helpers — consumed by all program pages and the homepage
+// =============================================================================
+
+/**
+ * Returns all activities for a given bucket, preserving the source order.
+ *
+ * Source order matters: the activities array is curated chronologically by
+ * hand. We deliberately don't sort here because the human-readable dates
+ * ("May 5 – June 15, 2021") aren't ISO and would sort alphabetically
+ * (Feb 2022 before May 2021), which is wrong.
+ *
+ * If you add a new activity, place it chronologically in the activities array
+ * above to keep pages rendering newest-first or oldest-first as designed.
+ */
 export function activitiesForBucket(bucket: ProgramBucket): Activity[] {
   return activities.filter((a) => a.bucket === bucket)
 }
 
+/**
+ * Looks up the Program (intro/label/category) for a bucket. Used by program
+ * page hero components. Throws at build time if the bucket is missing from
+ * the programs array, so renames don't silently produce empty pages.
+ */
 export function programForBucket(bucket: ProgramBucket): Program {
   const p = programs.find((p) => p.bucket === bucket)
   if (!p) throw new Error(`No program for bucket: ${bucket}`)

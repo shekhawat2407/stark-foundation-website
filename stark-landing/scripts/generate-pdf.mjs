@@ -1,8 +1,33 @@
-// Generates a static PDF of /the-foundation using headless Chrome.
-// Output: out/stark-foundation-overview.pdf
+// =============================================================================
+// PDF GENERATION PIPELINE
+// =============================================================================
 //
-// Boots a tiny static file server over the exported `out/` directory,
-// loads /the-foundation in headless Chrome, then prints to A4 portrait.
+// This script renders a deterministic PDF copy of the /the-foundation report
+// page and writes it to out/stark-foundation-overview.pdf. The file is then
+// served as a static asset at https://starkfoundation.in/stark-foundation-overview.pdf
+//
+// Why this exists:
+//   Browser print-to-PDF varies by browser/OS and isn't suitable for a
+//   shareable stakeholder artefact. Generating once with Puppeteer gives every
+//   visitor an identical, sharp, layout-stable PDF.
+//
+// Where this runs:
+//   1. Locally: `npm run build` chains next build + fix-basepath + this script
+//   2. In CI:   .github/workflows/deploy.yml runs `npm run build` after caching
+//               Puppeteer's bundled Chromium (~300 MB) under ~/.cache/puppeteer
+//
+// How the layout fits A4:
+//   /the-foundation has an inline <style> overriding @page { margin: 0 } so
+//   the `<Page>` components (h-[297mm]) fill the A4 canvas exactly. The site
+//   Navbar and Footer have `print:hidden` to keep them out of the PDF.
+//
+// Editing the report content:
+//   Edit stark-landing/app/the-foundation/page.tsx. The PDF auto-regenerates
+//   on every build. Activity data comes from lib/programs.ts where possible,
+//   but the Bachpan section uses hand-written <ActivityRow>s for fine layout
+//   control; remember to update both places when adding bachpan activities.
+//
+// Output: out/stark-foundation-overview.pdf (~3 MB typical)
 import http from 'node:http'
 import { createReadStream, existsSync } from 'node:fs'
 import { stat } from 'node:fs/promises'
