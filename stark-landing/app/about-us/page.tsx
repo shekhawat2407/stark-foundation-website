@@ -290,7 +290,7 @@ export default function AboutUs() {
 
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">
-              The team
+              On-Ground Team
             </div>
             <h2 className="text-2xl md:text-3xl font-semibold mb-10 max-w-2xl">
               Programs &amp; operations
